@@ -1,0 +1,156 @@
+<!--
+  MOD-03 · Anatomia de uma dashboard
+  As descrições das camadas ficam em <template data-cam-texto>; a dashboard
+  de demonstração é preenchida por js/pages/anatomia.js a partir de DATA.
+-->
+<section class="section">
+  <div class="section-title"><h2>As seis camadas</h2><span class="rule"></span></div>
+
+  <div class="grid g3" style="margin-bottom:20px">
+    <button class="camada" type="button" data-cam="contexto" aria-pressed="true">
+      <span class="cn">Camada 1</span><strong>Contexto e filtros</strong><em>Qual universo de dados estou vendo?</em>
+    </button>
+    <button class="camada" type="button" data-cam="kpis" aria-pressed="false">
+      <span class="cn">Camada 2</span><strong>Resumo executivo (KPIs)</strong><em>Como estamos?</em>
+    </button>
+    <button class="camada" type="button" data-cam="graficos" aria-pressed="false">
+      <span class="cn">Camada 3</span><strong>Evolução e comparação</strong><em>Está melhorando ou piorando? Onde está o desvio?</em>
+    </button>
+    <button class="camada" type="button" data-cam="excecoes" aria-pressed="false">
+      <span class="cn">Camada 4</span><strong>Exceções</strong><em>O que foge do limite?</em>
+    </button>
+    <button class="camada" type="button" data-cam="detalhe" aria-pressed="false">
+      <span class="cn">Camada 5</span><strong>Detalhamento</strong><em>Qual documento, qual pessoa, qual data?</em>
+    </button>
+    <button class="camada" type="button" data-cam="acoes" aria-pressed="false">
+      <span class="cn">Camada 6</span><strong>Ações</strong><em>Quem age, até quando, e deu certo?</em>
+    </button>
+  </div>
+
+  <div class="note" id="cam-desc" aria-live="polite"></div>
+
+  <template data-cam-texto="contexto">
+    <strong>Camada 1 — Contexto e filtros</strong><br>
+    <span class="small">Qual universo de dados estou vendo?</span>
+    <p class="small" style="margin:8px 0 0">Período, cliente, contrato, disciplina, responsável, situação e data da última atualização. Sem isso, todo número abaixo é ambíguo: 43% de margem <em>de quê</em>, <em>quando</em>?</p>
+  </template>
+  <template data-cam-texto="kpis">
+    <strong>Camada 2 — Resumo executivo (KPIs)</strong><br>
+    <span class="small">Como estamos?</span>
+    <p class="small" style="margin:8px 0 0">De quatro a oito cartões. Cada um com valor, meta, comparação temporal, tendência, semáforo e mini-histórico. Se o cartão não tem meta nem comparação, ele informa mas não avalia.</p>
+  </template>
+  <template data-cam-texto="graficos">
+    <strong>Camada 3 — Evolução e comparação</strong><br>
+    <span class="small">Está melhorando ou piorando? Onde está o desvio?</span>
+    <p class="small" style="margin:8px 0 0">Gráficos explicam o que os cartões apenas anunciam: comportamento no tempo, planejado versus realizado, composição do resultado e as áreas que mais contribuíram para o desvio.</p>
+  </template>
+  <template data-cam-texto="excecoes">
+    <strong>Camada 4 — Exceções</strong><br>
+    <span class="small">O que foge do limite?</span>
+    <p class="small" style="margin:8px 0 0">Contratos críticos, aprovações pendentes, documentos atrasados, equipes superalocadas e valores não faturados. A dashboard filtra por você: ninguém deveria precisar procurar o problema.</p>
+  </template>
+  <template data-cam-texto="detalhe">
+    <strong>Camada 5 — Detalhamento</strong><br>
+    <span class="small">Qual documento, qual pessoa, qual data?</span>
+    <p class="small" style="margin:8px 0 0">Gráficos resumem, tabelas detalham. É aqui que a análise vira nome, prazo e valor — o nível em que a ação é executável.</p>
+  </template>
+  <template data-cam-texto="acoes">
+    <strong>Camada 6 — Ações</strong><br>
+    <span class="small">Quem age, até quando, e deu certo?</span>
+    <p class="small" style="margin:8px 0 0">Problema, responsável, prazo, próxima ação e situação. A tela só cumpre sua função quando termina em decisão registrada.</p>
+  </template>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Dashboard de demonstração</h2><span class="rule"></span>
+    <span class="tiny muted">Nexo Gestão · visão executiva · dados fictícios</span>
+  </div>
+
+  <div class="demo-dash">
+
+    <div class="demo-layer" data-layer="contexto">
+      <div class="card" style="padding:14px 16px">
+        <div class="row" style="justify-content:space-between">
+          <div class="chip-filtros">
+            <span class="chip">Período: jul/2026</span>
+            <span class="chip">Cliente: todos</span>
+            <span class="chip">Contrato: carteira</span>
+            <span class="chip">Disciplina: todas</span>
+          </div>
+          <p class="freshness" data-slot="freshness"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-layer" data-layer="kpis">
+      <div class="grid g4" data-slot="demo-kpis"></div>
+    </div>
+
+    <div class="demo-layer" data-layer="graficos">
+      <div class="grid g2">
+        <section class="card">
+          <div class="card-head"><div><h3>Margem bruta da carteira</h3><p>evolução mensal contra a meta</p></div></div>
+          <div data-slot="demo-margem"></div>
+        </section>
+        <section class="card">
+          <div class="card-head"><div><h3>Horas planejadas x realizadas</h3><p>carteira consolidada</p></div></div>
+          <div data-slot="demo-horas"></div>
+        </section>
+      </div>
+    </div>
+
+    <div class="demo-layer" data-layer="excecoes">
+      <div class="grid g2" data-slot="demo-alertas"></div>
+    </div>
+
+    <div class="demo-layer" data-layer="detalhe" data-slot="demo-contratos"></div>
+
+    <div class="demo-layer" data-layer="acoes" data-slot="demo-acoes"></div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>A sequência de leitura</h2><span class="rule"></span></div>
+  <div class="grid g2">
+
+    <section class="card">
+      <ol class="fluxo">
+        <li><strong>Resumo</strong><span>Como estamos, em um golpe de vista.</span></li>
+        <li><strong>Desvio</strong><span>Onde o resultado se afasta do plano ou da meta.</span></li>
+        <li><strong>Tendência</strong><span>É ponto fora da curva ou deterioração contínua?</span></li>
+        <li><strong>Causa</strong><span>Contrato → disciplina → atividade → documento.</span></li>
+        <li><strong>Responsável</strong><span>Quem tem autoridade para mudar o rumo.</span></li>
+        <li><strong>Ação</strong><span>O que será feito e até quando.</span></li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><div><h3>Faixas recomendadas para o Nexo Gestão</h3></div></div>
+      <ul class="small">
+        <li><strong>Faixa 1</strong> — cabeçalho, filtros globais e filtros ativos visíveis.</li>
+        <li><strong>Faixa 2</strong> — 6 a 8 KPIs executivos com meta e tendência.</li>
+        <li><strong>Faixa 3</strong> — receita, custo e margem ao lado de planejado x realizado.</li>
+        <li><strong>Faixa 4</strong> — saúde dos contratos e forecast de conclusão.</li>
+        <li><strong>Faixa 5</strong> — mapa de calor de recursos por disciplina e mês.</li>
+        <li><strong>Faixa 6</strong> — documentos, revisões e aprovações.</li>
+        <li><strong>Faixa 7</strong> — alertas, riscos e tabela de ações.</li>
+      </ul>
+      <p class="erro-comum"><b>Erro comum:</b> Começar a tela pelos gráficos. Sem contexto no topo, o leitor não sabe o que está olhando.</p>
+    </section>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>A tela tem uma ordem de leitura, e ela não é decorativa.</li>
+      <li>KPI sem meta e sem comparação é apenas um número grande.</li>
+      <li>Exceções devem ser trazidas até o leitor, não procuradas por ele.</li>
+      <li>Gráfico resume, tabela detalha, plano de ação encerra.</li>
+    </ul>
+  </div>
+</section>

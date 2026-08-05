@@ -1,0 +1,116 @@
+<!--
+  MOD-08 · Planejamento e forecast
+  Os contêineres #p-kpis, #p-chart e #p-diag são recalculados a cada
+  movimento de parâmetro por js/pages/planejamento.js.
+-->
+<section class="section">
+  <div class="section-title"><h2>Três perspectivas, sempre juntas</h2><span class="rule"></span></div>
+  <div class="grid g3">
+
+    <article class="card" style="border-top:3px solid var(--c-gray)">
+      <h3>Planejado</h3>
+      <p class="small muted">O que deveria acontecer</p>
+      <ul class="small" style="margin:0">
+        <li>Horas orçadas</li><li>Receita prevista</li><li>Equipe planejada</li>
+        <li>Datas contratuais</li><li>Marcos</li><li>Custos previstos</li>
+      </ul>
+    </article>
+
+    <article class="card" style="border-top:3px solid var(--c-blue)">
+      <h3>Realizado</h3>
+      <p class="small muted">O que efetivamente aconteceu</p>
+      <ul class="small" style="margin:0">
+        <li>Horas apontadas</li><li>Receita reconhecida</li><li>Documentos emitidos</li>
+        <li>Custos incorridos</li><li>Progresso real</li><li>Datas realizadas</li>
+      </ul>
+    </article>
+
+    <article class="card" style="border-top:3px solid var(--c-purple)">
+      <h3>Forecast</h3>
+      <p class="small muted">O que provavelmente acontecerá</p>
+      <ul class="small" style="margin:0">
+        <li>Horas ao término</li><li>Custo final</li><li>Margem final</li>
+        <li>Data provável de conclusão</li><li>Necessidade de recursos</li><li>Caixa projetado</li>
+      </ul>
+    </article>
+
+  </div>
+  <p class="small muted" style="margin-top:12px">Planejado sozinho é intenção. Realizado sozinho é história. A decisão mora na terceira coluna.</p>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Simulação de encerramento</h2><span class="rule"></span>
+    <span class="tiny muted">DQM24001 · altere os parâmetros e veja o impacto</span>
+  </div>
+
+  <div class="grid g-1-2">
+    <div class="card">
+      <h3>Parâmetros</h3>
+      <div class="stack" style="gap:16px">
+        <label class="fld">Horas restantes estimadas · <b id="v-horas" class="num"></b>
+          <input type="range" id="p-horas" min="2000" max="6000" step="100" value="3800"></label>
+        <label class="fld">Custo-hora médio (R$) · <b id="v-ch" class="num"></b>
+          <input type="range" id="p-ch" min="90" max="180" step="5" value="120"></label>
+        <label class="fld">Equipe alocada (pessoas) · <b id="v-eq" class="num"></b>
+          <input type="range" id="p-eq" min="2" max="12" step="1" value="5"></label>
+        <label class="fld">Custo externo adicional (R$ mil) · <b id="v-ext" class="num"></b>
+          <input type="range" id="p-ext" min="0" max="400" step="10" value="0"></label>
+        <label class="fld">Receita adicional por aditivo (R$ mil) · <b id="v-adit" class="num"></b>
+          <input type="range" id="p-adit" min="0" max="600" step="20" value="0"></label>
+      </div>
+      <button class="btn btn-sm" type="button" id="p-reset" style="margin-top:18px">Restaurar cenário inicial</button>
+      <p class="tiny muted" style="margin-top:12px">Base: receita contratada R$ 4.200 mil · custo incorrido R$ 2.148 mil · 6.700 horas apontadas · prazo contratual até dez/2026 · jornada de 176 h por pessoa.</p>
+    </div>
+
+    <div class="stack">
+      <div class="grid g4" id="p-kpis"></div>
+      <div class="card">
+        <div class="card-head"><div><h3>Custo acumulado</h3><p>planejado, realizado e previsto — R$ mil</p></div></div>
+        <div id="p-chart"></div>
+        <div class="legend">
+          <span><i style="background:var(--c-gray)"></i>Planejado</span>
+          <span><i style="background:var(--c-blue)"></i>Realizado</span>
+          <span><i style="background:var(--c-purple)"></i>Forecast</span>
+        </div>
+      </div>
+      <div class="note" id="p-diag" aria-live="polite"></div>
+      <div class="change-note" id="p-change" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid g2">
+
+    <section class="card">
+      <div class="card-head"><div><h3>O que o forecast permite decidir</h3></div></div>
+      <ul class="small mb0">
+        <li>Reestimar horas restantes antes de o orçamento acabar.</li>
+        <li>Antecipar contratação ou terceirização de pacote.</li>
+        <li>Renegociar prazo com base em número, não em impressão.</li>
+        <li>Avaliar medição adicional ou aditivo enquanto o cliente ainda depende da entrega.</li>
+        <li>Projetar caixa com data provável de faturamento.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><div><h3>Cuidados com a previsão</h3></div></div>
+      <p class="small">O forecast só é confiável se o apontamento estiver em dia e as alterações de escopo registradas. Previsão calculada sobre dado incompleto transmite falsa segurança.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Refazer o forecast a cada semana até que ele coincida com a meta. Isso não é previsão: é ajuste de expectativa.</p>
+    </section>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>Planejado × realizado × forecast devem aparecer na mesma tela.</li>
+      <li>Margem prevista no encerramento é o indicador que ainda permite agir.</li>
+      <li>Data provável de conclusão vem do ritmo real, não da data contratual.</li>
+      <li>Cada parâmetro alterado tem impacto simultâneo em custo, prazo, equipe e risco.</li>
+    </ul>
+  </div>
+</section>

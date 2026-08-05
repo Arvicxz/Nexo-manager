@@ -1,0 +1,310 @@
+<!--
+  MOD-12 · Glossário
+  Os 36 termos são conteúdo e ficam declarados aqui. A busca apenas
+  esconde e mostra cartões — nenhum HTML é reconstruído em JavaScript.
+-->
+<section class="section">
+  <div class="card" style="margin-bottom:20px">
+    <label class="fld" style="max-width:420px">Buscar termo
+      <input type="search" id="gl-busca" placeholder="margem, drill-down, backlog…"
+             style="padding:8px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);font-size:var(--t-sm)">
+    </label>
+    <p class="tiny muted" style="margin:10px 0 0" id="gl-cont" aria-live="polite"></p>
+  </div>
+
+  <div class="grid g3" id="gl-lista">
+
+    <article class="card">
+      <h3>KPI</h3>
+      <p class="small" style="margin-bottom:6px">Indicador que a empresa cobra.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Indicador-chave de desempenho, associado a um objetivo, com meta, limite e responsável.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Margem bruta com meta de 48%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Métrica</h3>
+      <p class="small" style="margin-bottom:6px">Uma medição.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Valor objetivo obtido diretamente dos dados, sem julgamento associado.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Horas consumidas no mês.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Indicador</h3>
+      <p class="small" style="margin-bottom:6px">Informação que ajuda a interpretar.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Resultado derivado de métricas, usado para avaliar uma situação.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Percentual de horas consumidas.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Índice</h3>
+      <p class="small" style="margin-bottom:6px">Uma divisão entre dois números.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Relação matemática entre variáveis, usada para comparar unidades de tamanhos diferentes.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Horas realizadas ÷ horas previstas.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Meta</h3>
+      <p class="small" style="margin-bottom:6px">Onde se quer chegar.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Valor de referência definido previamente para avaliar o desempenho.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Margem mínima de 48%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Limite</h3>
+      <p class="small" style="margin-bottom:6px">A fronteira do aceitável.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Faixa a partir da qual o indicador vira exceção e gera alerta.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Atraso máximo de 5 dias.</p>
+      <a class="btn btn-ghost btn-sm" href="#/alertas">Ver no módulo MOD-07 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Parâmetro</h3>
+      <p class="small" style="margin-bottom:6px">Uma configuração do cálculo.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Valor ajustável que orienta fórmulas e regras do sistema.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Jornada mensal de 176 horas.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Dimensão</h3>
+      <p class="small" style="margin-bottom:6px">Uma forma de cortar os dados.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Atributo usado para segmentar e investigar: cliente, contrato, disciplina, mês.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Horas por disciplina.</p>
+      <a class="btn btn-ghost btn-sm" href="#/filtros">Ver no módulo MOD-06 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Benchmark</h3>
+      <p class="small" style="margin-bottom:6px">Uma referência de comparação.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Padrão histórico, interno ou setorial usado para avaliar posição relativa.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Média da carteira.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Forecast</h3>
+      <p class="small" style="margin-bottom:6px">A previsão de como vai terminar.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Estimativa de resultado futuro a partir do desempenho realizado.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Margem prevista no encerramento: 38%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/planejamento">Ver no módulo MOD-08 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Backlog</h3>
+      <p class="small" style="margin-bottom:6px">Trabalho contratado que ainda não foi feito.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Valor contratado menos valor já realizado ou reconhecido.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> R$ 7.520 mil de receita futura garantida.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Margem bruta</h3>
+      <p class="small" style="margin-bottom:6px">O que sobra depois dos custos diretos.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> (Receita − custos diretos) ÷ receita × 100.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> 43% contra meta de 48%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>MOD</h3>
+      <p class="small" style="margin-bottom:6px">Custo da equipe própria alocada ao serviço.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Mão de obra direta, medida sobre a receita para avaliar consumo.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> MOD sobre receita de 50,5%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>CPE</h3>
+      <p class="small" style="margin-bottom:6px">Custos externos e específicos de execução.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Terceiros, fornecedores e despesas diretamente ligadas ao contrato.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> CPE sobre receita de 12,2%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>PMR</h3>
+      <p class="small" style="margin-bottom:6px">Quantos dias a empresa leva para receber.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Prazo médio de recebimento, contado do faturamento ao crédito em caixa.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> 43 dias contra referência de 38.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Progresso físico</h3>
+      <p class="small" style="margin-bottom:6px">Quanto do escopo está pronto de fato.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Percentual de conclusão do escopo, independente das horas gastas.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> 52% concluído com 72% das horas.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Retrabalho</h3>
+      <p class="small" style="margin-bottom:6px">Refazer o que já estava feito.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Horas gastas em revisão não decorrente de alteração formal de escopo.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> 9,1% das horas da CIV.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Utilização</h3>
+      <p class="small" style="margin-bottom:6px">Quanto da equipe está em trabalho produtivo.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Horas produtivas ou faturáveis ÷ horas disponíveis.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> 88,1% contra meta de 82%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Alocação</h3>
+      <p class="small" style="margin-bottom:6px">Quanto da agenda de alguém já está comprometido.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Horas planejadas ÷ horas disponíveis.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> 125% na CIV em julho.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Superalocação</h3>
+      <p class="small" style="margin-bottom:6px">Prometeu-se mais trabalho do que cabe.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Necessidade de horas maior que a capacidade disponível.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> 220 h necessárias para 176 h disponíveis.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Subalocação</h3>
+      <p class="small" style="margin-bottom:6px">Sobra capacidade sem demanda.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Disponibilidade não coberta por trabalho planejado.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> INS com folga a partir de setembro.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Capacidade mix</h3>
+      <p class="small" style="margin-bottom:6px">Ter as pessoas certas, não só o número certo.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Distribuição da capacidade por especialidade, comparada à necessidade.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Total equilibrado, CIV faltando.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>SLA</h3>
+      <p class="small" style="margin-bottom:6px">Prazo combinado de resposta.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Acordo de nível de serviço entre a solicitação e o retorno.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Resposta ao cliente em até 2 dias.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Drill-down</h3>
+      <p class="small" style="margin-bottom:6px">Descer um nível de detalhe.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Navegação dentro da mesma hierarquia: contrato → disciplina → documento.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Da margem da carteira até o documento.</p>
+      <a class="btn btn-ghost btn-sm" href="#/filtros">Ver no módulo MOD-06 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Drill-through</h3>
+      <p class="small" style="margin-bottom:6px">Abrir a página completa daquele item.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Navegação para outra tela com o detalhe integral do registro.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Do contrato crítico para a página do contrato.</p>
+      <a class="btn btn-ghost btn-sm" href="#/filtros">Ver no módulo MOD-06 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Cross-filter</h3>
+      <p class="small" style="margin-bottom:6px">Clicar em um gráfico e filtrar os outros.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Interação em que a seleção em um componente reflete nos demais.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Clicar em CIV filtra toda a tela.</p>
+      <a class="btn btn-ghost btn-sm" href="#/filtros">Ver no módulo MOD-06 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Tooltip</h3>
+      <p class="small" style="margin-bottom:6px">A informação que aparece ao passar o mouse.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Camada complementar de detalhe sob demanda.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Horas orçadas e realizadas no ponto do gráfico.</p>
+      <a class="btn btn-ghost btn-sm" href="#/filtros">Ver no módulo MOD-06 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Breadcrumb</h3>
+      <p class="small" style="margin-bottom:6px">O caminho já percorrido na análise.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Trilha de navegação hierárquica exibida ao usuário.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Empresa &gt; Cliente &gt; Contrato &gt; Disciplina.</p>
+      <a class="btn btn-ghost btn-sm" href="#/filtros">Ver no módulo MOD-06 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Semáforo</h3>
+      <p class="small" style="margin-bottom:6px">Verde, amarelo e vermelho com significado definido.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Codificação de status por faixa de limite, sempre acompanhada de texto.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Vermelho: margem abaixo de 40%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/praticas">Ver no módulo MOD-11 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Heatmap</h3>
+      <p class="small" style="margin-bottom:6px">Mapa de calor.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Matriz que representa intensidade por cor em duas dimensões.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Capacidade por disciplina e mês.</p>
+      <a class="btn btn-ghost btn-sm" href="#/graficos">Ver no módulo MOD-05 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Waterfall</h3>
+      <p class="small" style="margin-bottom:6px">Gráfico de cascata.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Visualização que decompõe a transformação de um valor inicial em final.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Receita menos custos até a margem.</p>
+      <a class="btn btn-ghost btn-sm" href="#/graficos">Ver no módulo MOD-05 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Scatter plot</h3>
+      <p class="small" style="margin-bottom:6px">Gráfico de dispersão.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Representação de duas variáveis em pares ordenados, para testar relação.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Margem contra atraso por contrato.</p>
+      <a class="btn btn-ghost btn-sm" href="#/graficos">Ver no módulo MOD-05 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Bullet chart</h3>
+      <p class="small" style="margin-bottom:6px">Barra com meta e faixas.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Comparação compacta entre valor, meta e faixas de desempenho.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Margem de 43% contra meta de 48%.</p>
+      <a class="btn btn-ghost btn-sm" href="#/graficos">Ver no módulo MOD-05 →</a>
+    </article>
+
+    <article class="card">
+      <h3>SGD</h3>
+      <p class="small" style="margin-bottom:6px">Onde ficam os documentos.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Sistema de gestão de documentos: contratos, revisões e aprovações.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Fonte de emissões e revisões.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>RAT</h3>
+      <p class="small" style="margin-bottom:6px">Onde as horas são apontadas.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Registro de atividades técnicas por colaborador, contrato e disciplina.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Fonte de custo e produtividade.</p>
+      <a class="btn btn-ghost btn-sm" href="#/fundamentos">Ver no módulo MOD-02 →</a>
+    </article>
+
+    <article class="card">
+      <h3>Aditivo</h3>
+      <p class="small" style="margin-bottom:6px">A formalização do escopo novo.</p>
+      <p class="tiny muted"><strong>Definição técnica:</strong> Instrumento contratual que ajusta escopo, prazo ou valor.</p>
+      <p class="tiny muted"><strong>Exemplo:</strong> Recomposição de receita por alteração de premissa.</p>
+      <a class="btn btn-ghost btn-sm" href="#/indicadores">Ver no módulo MOD-04 →</a>
+    </article>
+
+  </div>
+
+  <div class="card" id="gl-vazio" hidden>
+    <p class="mb0 small muted">Nenhum termo encontrado. Tente uma palavra mais curta, como “horas” ou “margem”.</p>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nexo Gestão · Aprender Dashboards de Gestão</title>
+<meta name="description" content="Plataforma didática sobre dashboards, indicadores, gráficos, filtros, alertas e decisão gerencial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="topbar">
+  <button class="icon-btn" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <a class="brand" href="#/inicio">
+    <span class="brand-mark" aria-hidden="true">NX</span>
+    <span class="brand-text">
+      <strong>Nexo Gestão</strong>
+      <small>Aprender dashboards de gestão</small>
+    </span>
+  </a>
+  <button class="icon-btn search-toggle" id="btn-search" type="button" aria-label="Abrir busca" aria-expanded="false" aria-controls="busca-wrap">⌕</button>
+  <div class="search" id="busca-wrap">
+    <label class="sr-only" for="busca">Buscar conteúdo</label>
+    <input id="busca" type="search" placeholder="Buscar indicador, gráfico ou conceito" autocomplete="off"
+      role="combobox" aria-autocomplete="list" aria-controls="busca-resultados" aria-expanded="false">
+    <div id="busca-resultados" class="search-results" role="listbox" hidden></div>
+  </div>
+  <div class="topbar-meta">
+    <span class="badge badge-gray" title="Todos os dados desta aplicação são fictícios">Dados fictícios</span>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar" id="sidebar" aria-label="Módulos">
+    <p class="sidebar-title">Índice de módulos</p>
+    <ul id="nav-list"></ul>
+    <div class="sidebar-foot">
+      <p class="sidebar-progress-label">Seu progresso</p>
+      <div class="progress"><span id="prog-bar" style="width:0%"></span></div>
+      <p class="mono tiny" id="prog-text">0 de 12 módulos concluídos</p>
+      <div class="skill-summary" id="skill-list" aria-label="Competências praticadas"></div>
+      <button class="btn btn-ghost btn-sm" id="btn-reset">Limpar progresso</button>
+    </div>
+  </nav>
+
+  <main id="conteudo" tabindex="-1">
+    <!-- O router injeta aqui o template de public/pages/<modulo>.html -->
+    <div id="view" class="view"></div>
+  </main>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!--
+  MOD-04 · Métricas e indicadores
+  Quatro painéis em abas. Prosa, fórmulas e cenários ficam aqui;
+  os gráficos e as tabelas que dependem de DATA são preenchidos por js/pages/indicadores.js.
+-->
+<div class="tabs" role="tablist">
+  <button class="tab" type="button" role="tab" data-tab="fin" aria-selected="true">Financeiros</button>
+  <button class="tab" type="button" role="tab" data-tab="con" aria-selected="false">Contratos e projetos</button>
+  <button class="tab" type="button" role="tab" data-tab="eq" aria-selected="false">Equipe e capacidade</button>
+  <button class="tab" type="button" role="tab" data-tab="cli" aria-selected="false">Clientes e comunicação</button>
+</div>
+
+<!-- ============================================================ FINANCEIROS -->
+<div data-panel="fin">
+  <div class="grid g2">
+
+    <article class="card">
+      <div class="card-head"><div><h3>Receita bruta</h3><p>Valor produzido ou reconhecido no período</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Soma da receita reconhecida por contrato, cliente ou unidade</div>
+      <div data-slot="ind-receita"></div>
+      <p class="small">Responde “quanto a empresa produziu financeiramente”. Deve ser segmentável por cliente, contrato, unidade, serviço e disciplina.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Crescimento coerente com a capacidade instalada.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Crescimento sustentado por horas extras e sobrecarga.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Queda com backlog em redução: falta trabalho contratado à frente.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Sazonalidade, atraso de medição, contratos encerrando, escopo não formalizado.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Confrontar com backlog e pipeline; verificar medições pendentes.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Receita produzida, faturada e recebida</h3><p>Três números diferentes que costumam ser tratados como um só</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Produzido → medido → faturado → recebido</div>
+      <div data-slot="ind-receitas"></div>
+      <p class="small">Um serviço pode estar concluído, não medido, não faturado e não recebido. A distância entre as três linhas é dinheiro parado.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Linhas próximas e paralelas.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Distância crescente entre produzida e faturada.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Recebida estagnada com faturamento em alta: risco de caixa.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Documentos atrasados travando medição, pendências do cliente, glosas, inadimplência.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Cobrar aprovações que liberam medição; revisar cronograma de faturamento.</p>
+      </div></details>
+      <p class="erro-comum"><b>Erro comum:</b> Comemorar receita produzida sem olhar o recebimento.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Margem bruta</h3><p>Rentabilidade depois dos custos diretos</p></div><span class="badge badge-red">43,0% · meta 48%</span></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>(Receita − Custos diretos) ÷ Receita × 100</div>
+      <div data-slot="ind-margem"></div>
+      <p class="small">Seis meses de queda contínua. O valor atual ainda parece aceitável; a tendência é o que exige decisão.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Acima da meta e estável.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Dentro da meta, mas caindo há três períodos.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Abaixo do mínimo, com forecast pior que o realizado.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Consumo de horas acima do orçado, retrabalho, escopo absorvido sem aditivo, preço de venda inadequado.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Isolar os contratos responsáveis; separar retrabalho de alteração de escopo; avaliar aditivo.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Formação do resultado</h3><p>Como a receita vira margem — julho/2026, R$ mil</p></div></div>
+      <div data-slot="ind-cascata"></div>
+      <p class="small">O gráfico de cascata evita a pergunta “por que a margem caiu?”: ele já mostra qual parcela cresceu.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Explicar queda de margem apenas com o percentual final, sem decompor os custos.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>MOD sobre receita</h3><p>Quanto da receita é consumido pela mão de obra direta</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Custo da mão de obra direta ÷ Receita</div>
+      <div data-slot="ind-mod"></div>
+      <p class="small">Subiu de 44,1% para 50,5% em sete meses — o principal componente da queda da margem.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Estável e compatível com o mix de senioridade.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Crescendo sem aumento correspondente de receita.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Acima do limite com progresso físico atrasado.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Equipe superdimensionada, retrabalho, senioridade acima do necessário, baixa produtividade.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Revisar alocação por disciplina e o mix de senioridade do contrato.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>CPE sobre receita</h3><p>Custos externos e específicos de execução</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>CPE ÷ Receita</div>
+      <div data-slot="ind-cpe"></div>
+      <p class="small">Mede a dependência de terceiros, fornecedores e despesas externas. Cada empresa precisa fixar o que entra nesta conta.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Mudar a composição do CPE no meio do ano e comparar com o histórico antigo.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Backlog</h3><p>Receita contratada ainda não produzida</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Valor contratado − valor já realizado</div>
+      <div data-slot="ind-backlog"></div>
+      <p class="small">R$ 7.520 mil de trabalho contratado à frente, em queda de 15,5% no ano. Backlog caindo com pipeline fraco é alerta comercial, não operacional.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Backlog cobre 6 meses ou mais de produção.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Backlog em queda com pipeline estável.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Backlog abaixo de 3 meses de produção.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Contratos encerrando, baixa conversão comercial, atraso em renovações.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Confrontar com o funil comercial e antecipar a discussão de capacidade.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Prazo médio de recebimento e margem prevista</h3><p>Dois indicadores de futuro</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Margem prevista = (Receita contratada − custo total previsto) ÷ Receita contratada</div>
+      <div class="grid g2" style="gap:12px" data-slot="ind-futuro"></div>
+      <p class="small">O velocímetro ocupa muito espaço para pouca informação; o bullet chart compara valor, meta e faixas no mesmo lugar. Compare os dois acima.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Encher a tela de velocímetros quando bullet charts comunicam melhor.</p>
+    </article>
+
+  </div>
+</div>
+
+<!-- ============================================================ CONTRATOS -->
+<div data-panel="con" hidden>
+  <div class="grid g2">
+
+    <article class="card">
+      <div class="card-head"><div><h3>Progresso físico x consumo de horas</h3><p>DQM24001 — o par de indicadores mais revelador da gestão de projetos</p></div></div>
+      <div data-slot="ind-progresso"></div>
+      <p class="small">Progresso físico de 52% com 72% das horas consumidas. As curvas se abriram em abril — o problema tem três meses, não um.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Curvas de progresso e horas caminham juntas.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Horas 5 a 10 pontos à frente do progresso.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Horas mais de 20 pontos à frente: o orçamento não fecha.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Retrabalho, escopo adicional não formalizado, estimativa original irreal, apontamento incorreto.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Reestimar horas restantes, separar retrabalho de escopo novo, avaliar aditivo ou medição adicional.</p>
+      </div></details>
+      <p class="erro-comum"><b>Erro comum:</b> Usar horas consumidas como se fossem progresso físico.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Eficiência de horas</h3><p>Relação entre o que foi entregue e o que foi gasto</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Eficiência = Progresso físico ÷ percentual de horas consumidas</div>
+      <div class="grid g3" style="gap:12px">
+        <article class="kpi crit"><span class="kpi-label">DQM24001</span><span class="kpi-value">0,72</span><span class="kpi-meta"><span>52% ÷ 72%</span></span><span><span class="badge badge-red">Consumo ineficiente</span></span></article>
+        <article class="kpi ok"><span class="kpi-label">PTM22001</span><span class="kpi-value">1,05</span><span class="kpi-meta"><span>64% ÷ 61%</span></span><span><span class="badge badge-green">Melhor que o plano</span></span></article>
+        <article class="kpi ok"><span class="kpi-label">PTM23004</span><span class="kpi-value">1,05</span><span class="kpi-meta"><span>88% ÷ 84%</span></span><span><span class="badge badge-green">Dentro do plano</span></span></article>
+      </div>
+      <p class="small">Acima de 1, melhor que o planejado. Próximo de 1, dentro do plano. Abaixo de 1, cada ponto de avanço está custando mais horas do que deveria.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Igual ou acima de 1,00.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Entre 0,90 e 1,00.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Abaixo de 0,85 com o contrato ainda na metade.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Complexidade subestimada, equipe em aprendizado, revisões em excesso.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Comparar com contratos semelhantes antes de concluir que a equipe é o problema.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Horas por disciplina</h3><p>DQM24001 — orçadas contra realizadas</p></div></div>
+      <div data-slot="ind-horas-disc"></div>
+      <p class="small">O desvio não está espalhado: 410 das 490 horas excedentes estão na CIV. É aí que a investigação continua.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Concluir que “o contrato está ruim” sem descer até a disciplina.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Desvio de prazo e marcos</h3><p>Entrega no tempo combinado</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Desvio de prazo = Data prevista − data atualizada   ·   Marcos no prazo = cumpridos ÷ concluídos</div>
+      <div data-slot="ind-gantt"></div>
+      <p class="small">Acompanhar marcos permite avaliar entregas relevantes sem revisar todas as atividades do cronograma. Aqui, 3 de 4 marcos no prazo (75%).</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Todos os marcos no prazo.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Atraso dentro do limite de 5 dias.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Marco contratual perdido, com impacto em medição.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Dependências externas, aprovação do cliente, sequenciamento irreal.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Reprogramar e formalizar impactos por escrito com o cliente.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Retrabalho e qualidade técnica</h3><p>O custo invisível dentro das horas</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Retrabalho = Horas de retrabalho ÷ horas totais   ·   Aprovação na 1ª emissão = aprovados sem nova revisão ÷ submetidos</div>
+      <div class="grid g2" style="gap:12px">
+        <article class="kpi crit"><span class="kpi-label">Retrabalho · CIV</span><span class="kpi-value">9,1<small>%</small></span><span class="kpi-meta"><span>Meta até 5%</span><span>≈ 205 horas no trimestre</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Aprovação na 1ª emissão</span><span class="kpi-value">63,2<small>%</small></span><span class="kpi-meta"><span>Meta 80%</span><span>2,4 revisões por documento</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+      </div>
+      <div data-slot="ind-docs-revisao"></div>
+      <p class="small">Metade das revisões tem origem externa (definição do cliente) e metade é interna. A separação muda completamente a ação — e a conversa comercial.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Retrabalho abaixo de 5% e aprovação acima de 80%.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Retrabalho entre 5% e 8%.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Retrabalho acima de 8% concentrado em uma disciplina.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Premissas instáveis, interferência entre disciplinas, requisitos mal lidos.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Registrar a origem de cada revisão; formalizar impacto das pendências do cliente.</p>
+      </div></details>
+      <p class="erro-comum"><b>Erro comum:</b> Tratar todo retrabalho como falha da equipe, sem separar alteração de escopo.</p>
+    </article>
+
+  </div>
+</div>
+
+<!-- ============================================================ EQUIPE -->
+<div data-panel="eq" hidden>
+  <div class="grid g2">
+
+    <article class="card">
+      <div class="card-head"><div><h3>Taxa de utilização</h3><p>Quanto da capacidade está em atividade produtiva</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Horas produtivas ou faturáveis ÷ horas disponíveis</div>
+      <div data-slot="ind-utilizacao"></div>
+      <p class="small">88,1% parece excelente. Sustentado por meses, costuma significar horas extras, queda de qualidade e aumento de revisões.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Entre 78% e 85%.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Acima de 88% por dois meses seguidos.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Acima de 90% com retrabalho subindo junto.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Equipe insuficiente, escopo adicional, concentração de picos.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Confrontar com retrabalho e prazo antes de comemorar utilização alta.</p>
+      </div></details>
+      <p class="erro-comum"><b>Erro comum:</b> Perseguir 100% de utilização como se fosse meta.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Alocação, superalocação e subalocação</h3><p>Necessidade contra disponibilidade</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Alocação = Horas planejadas ÷ horas disponíveis</div>
+      <div class="formula"><span class="formula-label">Exemplo · CIV em julho</span>Necessidade:      220 horas
+Disponibilidade:  176 horas
+Superalocação:     44 horas  (125% de alocação)</div>
+      <p class="small">Superalocação não se resolve com esforço: ela se resolve com decisão — remanejar, contratar, terceirizar ou reprogramar.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Alocação entre 85% e 100%.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Alocação acima de 110% em um mês isolado.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Superalocação sustentada por três meses.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Picos simultâneos de contratos na mesma disciplina.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Remanejar entre contratos, contratar apoio, terceirizar pacote ou renegociar prazo.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Mapa de capacidade por disciplina</h3><p>Necessário − disponível, em pessoas equivalentes</p></div></div>
+      <div data-slot="ind-capacidade"></div>
+      <p class="tiny muted" style="margin-top:8px">Negativo: faltam pessoas. Zero: equilíbrio. Positivo: capacidade disponível.</p>
+      <p class="small">A CIV precisa de 3 a 4 pessoas a mais em julho e agosto, enquanto INS tem folga a partir de setembro. Total da empresa equilibrado, mix errado.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Linhas majoritariamente em zero.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Um mês negativo isolado.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Dois ou mais meses seguidos abaixo de −2 na mesma disciplina.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Planejamento por total de pessoas, ignorando especialidade.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Antecipar contratação, remanejar entre contratos ou renegociar sequenciamento.</p>
+      </div></details>
+      <p class="erro-comum"><b>Erro comum:</b> Somar a capacidade total da empresa e concluir que não falta ninguém.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Cumprimento de apontamento e produtividade</h3><p>A confiabilidade de todos os outros indicadores</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Cumprimento = Colaboradores com RAT atualizado ÷ colaboradores obrigados</div>
+      <div class="grid g2" style="gap:12px">
+        <article class="kpi warn"><span class="kpi-label">Cumprimento do RAT</span><span class="kpi-value">91,4<small>%</small></span><span class="kpi-meta"><span>Meta 100%</span><span>11 pessoas em atraso</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Documentos por 100 h</span><span class="kpi-value">1,4</span><span class="kpi-meta"><span>Meta 1,8</span><span>ajustado por complexidade</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+      </div>
+      <p class="small">Sem apontamento completo, custo, produtividade e rentabilidade viram estimativa. É o indicador que sustenta todos os outros.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Comparar produtividade entre documentos de complexidades muito diferentes.</p>
+    </article>
+
+  </div>
+</div>
+
+<!-- ============================================================ CLIENTES -->
+<div data-panel="cli" hidden>
+  <div class="grid g2">
+
+    <article class="card">
+      <div class="card-head"><div><h3>SLA de resposta e tempo de aprovação do cliente</h3><p>Separar o atraso interno do atraso externo</p></div></div>
+      <div class="grid g2" style="gap:12px">
+        <article class="kpi ok"><span class="kpi-label">SLA de resposta</span><span class="kpi-value">1,8<small> d</small></span><span class="kpi-meta"><span>Meta 2 d</span></span><span><span class="badge badge-green">Dentro da meta</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Aprovação do cliente</span><span class="kpi-value">14,2<small> d</small></span><span class="kpi-meta"><span>Meta 7 d</span><span>4 documentos parados</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+      </div>
+      <p class="small">Metade do atraso do DQM24001 está fora da empresa. Sem esse desmembramento, a equipe é cobrada por um prazo que não controla.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Retorno dentro do prazo acordado.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Retorno acima do prazo em documentos não críticos.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Documentos do caminho crítico parados com o cliente.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Fila de aprovação do cliente, mudança de interlocutor, definição técnica pendente.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Registrar formalmente a data de envio e a de retorno; reportar o impacto ao cliente por escrito.</p>
+      </div></details>
+      <p class="erro-comum"><b>Erro comum:</b> Reportar apenas “atrasado”, sem indicar de quem é a pendência.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Taxa de aceite e satisfação</h3><p>Qualidade percebida pelo cliente</p></div></div>
+      <div class="formula"><span class="formula-label">Fórmula</span>Taxa de aceite = Entregas aceitas ÷ entregas submetidas</div>
+      <div data-slot="ind-radar"></div>
+      <p class="small">O radar serve para leitura qualitativa de maturidade e percepção. Não use radar para decisão financeira detalhada.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Tirar conclusão numérica precisa de um gráfico de radar.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Alterações de escopo</h3><p>O histórico que protege o contrato</p></div></div>
+      <div class="table-wrap"><table class="responsive">
+        <thead><tr><th>Solicitação</th><th class="num">Horas</th><th class="num">Impacto R$</th><th class="num">Prazo</th><th>Situação comercial</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Solicitação">Revisão de premissa de carga</td><td data-l="Horas" class="num">+180</td><td data-l="Impacto R$" class="num">+ R$ 62 mil</td><td data-l="Prazo" class="num">+8 d</td><td data-l="Situação comercial"><span class="badge badge-amber">Em negociação</span></td></tr>
+          <tr><td data-l="Solicitação">Novo arranjo de tubulação</td><td data-l="Horas" class="num">+95</td><td data-l="Impacto R$" class="num">+ R$ 31 mil</td><td data-l="Prazo" class="num">+4 d</td><td data-l="Situação comercial"><span class="badge badge-red">Não formalizada</span></td></tr>
+          <tr><td data-l="Solicitação">Detalhe adicional de fundação</td><td data-l="Horas" class="num">+40</td><td data-l="Impacto R$" class="num">+ R$ 14 mil</td><td data-l="Prazo" class="num">+2 d</td><td data-l="Situação comercial"><span class="badge badge-green">Aditivo aprovado</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Alterações informais absorvidas sem registro aparecem depois como “baixa produtividade da equipe”. Elas precisam ter quantidade, horas, valor, prazo e situação comercial.</p>
+      <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
+        <div class="grid g3" style="gap:12px">
+          <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Toda alteração formalizada antes da execução.</p></div>
+          <div><p class="small mb0"><span class="badge badge-amber">Atenção</span></p><p class="small">Alterações executadas e em negociação.</p></div>
+          <div><p class="small mb0"><span class="badge badge-red">Crítico</span></p><p class="small">Alterações executadas sem registro.</p></div>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Causas típicas:</strong> Pedido verbal em reunião, ajuste “pequeno” aceito por boa vontade.</p>
+        <p class="small mb0"><strong>Ações recomendadas:</strong> Formalizar antes de executar; registrar horas em atividade separada.</p>
+      </div></details>
+      <p class="erro-comum"><b>Erro comum:</b> Registrar horas de escopo novo dentro da atividade original.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Pendências do cliente</h3><p>Decisões aguardando o lado de fora</p></div></div>
+      <div data-slot="ind-pendencias"></div>
+      <p class="small">Pendência do cliente é risco compartilhado: deve aparecer também na visão externa, com data de solicitação e impacto declarado.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Manter a lista de pendências apenas em e-mail.</p>
+    </article>
+
+  </div>
+</div>
+
+<section class="section" style="margin-top:40px">
+  <div class="section-title"><h2>Antes de criar qualquer indicador</h2><span class="rule"></span></div>
+  <div class="table-wrap"><table class="responsive">
+    <caption>Dez perguntas que precisam ter resposta antes de o componente entrar na tela.</caption>
+    <thead><tr><th>Pergunta</th><th>Exemplo de resposta</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Pergunta">Qual pergunta ele responde?</td><td data-l="Exemplo de resposta">O contrato está consumindo horas acima do previsto?</td></tr>
+      <tr><td data-l="Pergunta">Quem utiliza?</td><td data-l="Exemplo de resposta">Coordenador do contrato e gerente de engenharia</td></tr>
+      <tr><td data-l="Pergunta">Qual a fórmula?</td><td data-l="Exemplo de resposta">Horas realizadas ÷ horas orçadas</td></tr>
+      <tr><td data-l="Pergunta">Qual a fonte?</td><td data-l="Exemplo de resposta">RAT e orçamento aprovado</td></tr>
+      <tr><td data-l="Pergunta">Qual a frequência de atualização?</td><td data-l="Exemplo de resposta">Diária</td></tr>
+      <tr><td data-l="Pergunta">Qual a meta?</td><td data-l="Exemplo de resposta">Até 100%, proporcional ao progresso físico</td></tr>
+      <tr><td data-l="Pergunta">Qual o limite de atenção?</td><td data-l="Exemplo de resposta">Desvio acima de 10%</td></tr>
+      <tr><td data-l="Pergunta">Qual o limite crítico?</td><td data-l="Exemplo de resposta">Desvio acima de 20%</td></tr>
+      <tr><td data-l="Pergunta">Quem é responsável?</td><td data-l="Exemplo de resposta">Coordenador do contrato</td></tr>
+      <tr><td data-l="Pergunta">Qual ação será tomada?</td><td data-l="Exemplo de resposta">Replanejamento ou revisão de escopo</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>Todo indicador precisa de fórmula única, meta, limite, responsável e ação.</li>
+      <li>Progresso físico e consumo de horas só significam algo quando lidos juntos.</li>
+      <li>Utilização alta demais é sintoma, não conquista.</li>
+      <li>Separar atraso interno de atraso do cliente muda a decisão e a conversa comercial.</li>
+      <li>Margem prevista no encerramento importa mais que margem realizada.</li>
+    </ul>
+  </div>
+</section>

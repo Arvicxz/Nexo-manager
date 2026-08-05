@@ -1,0 +1,16 @@
+{
+  "name": "nexo-gestao-dashboards",
+  "version": "1.0.0",
+  "description": "Aplicação web didática sobre dashboards de gestão: indicadores, métricas, gráficos, filtros, alertas, planejamento e tomada de decisão, aplicada a uma empresa de engenharia e projetos.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^8.2.0"
+  }
+}

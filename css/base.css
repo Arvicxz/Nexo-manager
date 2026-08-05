@@ -1,0 +1,47 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink-2);
+  font-family:var(--font-sans);font-size:var(--t-body);line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{color:var(--ink);font-weight:600;line-height:1.25;margin:0 0 var(--s3);letter-spacing:0}
+h1{font-size:var(--t-h1)}
+h2{font-size:var(--t-h2)}
+h3{font-size:var(--t-h3)}
+p{margin:0 0 var(--s3)}
+ul,ol{margin:0 0 var(--s3);padding-left:1.15rem}
+li{margin:0 0 var(--s1)}
+a{color:var(--c-blue);text-decoration:none}
+a:hover{text-decoration:underline}
+strong{color:var(--ink);font-weight:600}
+code,kbd,pre,.mono{font-family:var(--font-mono)}
+hr{border:0;border-top:1px solid var(--line);margin:var(--s5) 0}
+
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--c-blue);outline-offset:2px;border-radius:var(--r-sm)}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:100}
+.skip:focus{left:8px;top:8px}
+
+.tiny{font-size:var(--t-tiny)}
+.small{font-size:var(--t-sm)}
+.muted{color:var(--ink-3)}
+.nowrap{white-space:nowrap}
+.center{text-align:center}
+.right{text-align:right}
+.mt0{margin-top:0}.mb0{margin-bottom:0}
+.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+[hidden]{display:none !important}
+[id]{scroll-margin-top:calc(var(--topbar-h) + var(--s4))}
+
+/* eyebrow: código do módulo, no idioma da engenharia (MOD-04 / REV-A) */
+.eyebrow{
+  font-family:var(--font-mono);font-size:var(--t-tiny);font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+}

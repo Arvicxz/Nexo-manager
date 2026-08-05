@@ -1,0 +1,166 @@
+<!--
+  MOD-09 · Perfis de gestão
+  Oito visões declaradas por extenso: alternar de perfil é mostrar/esconder
+  um painel, sem redesenhar HTML em JavaScript.
+-->
+<section class="section">
+  <div class="tabs" role="tablist">
+    <button class="tab" type="button" role="tab" data-perfil="diretoria" aria-selected="true">Diretoria</button>
+    <button class="tab" type="button" role="tab" data-perfil="gerente" aria-selected="false">Gerente de engenharia</button>
+    <button class="tab" type="button" role="tab" data-perfil="coordenador" aria-selected="false">Coordenador de contrato</button>
+    <button class="tab" type="button" role="tab" data-perfil="lider" aria-selected="false">Líder de disciplina</button>
+    <button class="tab" type="button" role="tab" data-perfil="financeiro" aria-selected="false">Financeiro</button>
+    <button class="tab" type="button" role="tab" data-perfil="comercial" aria-selected="false">Comercial</button>
+    <button class="tab" type="button" role="tab" data-perfil="colaborador" aria-selected="false">Colaborador</button>
+    <button class="tab" type="button" role="tab" data-perfil="cliente" aria-selected="false">Cliente</button>
+  </div>
+
+  <div id="perfil-painel">
+
+    <div class="card" data-painel="diretoria">
+      <div class="card-head"><div><h3>Diretoria</h3><p>Resultado, caixa, margem, carteira e risco</p></div><span class="badge badge-gray badge-plain">visão dedicada</span></div>
+      <div class="grid g4" style="margin-bottom:16px">
+        <article class="kpi info"><span class="kpi-label">Receita acumulada</span><span class="kpi-value">R$ 9.060 mil</span><span class="kpi-meta"><span>+6,2% vs. 2025</span></span><span><span class="badge badge-blue">Informativo</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Margem bruta</span><span class="kpi-value">43,0%</span><span class="kpi-meta"><span>meta 48%</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Backlog</span><span class="kpi-value">R$ 7.520 mil</span><span class="kpi-meta"><span>−15,5% no ano</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Contratos críticos</span><span class="kpi-value">1 de 5</span><span class="kpi-meta"><span>R$ 4.200 mil expostos</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+      </div>
+      <div class="grid g2">
+        <p class="small mb0"><strong>Visualizações adequadas:</strong> Linha de margem, cascata do resultado, bolhas de portfólio, forecast de caixa.</p>
+        <p class="small mb0"><strong>Não deve aparecer:</strong> Lista de documentos, apontamentos individuais, detalhe de atividades.</p>
+      </div>
+    </div>
+
+    <div class="card" data-painel="gerente" hidden>
+      <div class="card-head"><div><h3>Gerente de engenharia</h3><p>Capacidade, desempenho técnico e prioridades</p></div><span class="badge badge-gray badge-plain">visão dedicada</span></div>
+      <div class="grid g4" style="margin-bottom:16px">
+        <article class="kpi warn"><span class="kpi-label">Taxa de utilização</span><span class="kpi-value">88,1%</span><span class="kpi-meta"><span>meta 82%</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Disciplinas críticas</span><span class="kpi-value">CIV</span><span class="kpi-meta"><span>−4 pessoas em ago</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Retrabalho</span><span class="kpi-value">9,1%</span><span class="kpi-meta"><span>limite 5%</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Aprovação na 1ª emissão</span><span class="kpi-value">63,2%</span><span class="kpi-meta"><span>meta 80%</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+      </div>
+      <div class="grid g2">
+        <p class="small mb0"><strong>Visualizações adequadas:</strong> Mapa de calor de recursos, barras de horas por disciplina, dispersão horas x progresso.</p>
+        <p class="small mb0"><strong>Não deve aparecer:</strong> Fluxo de caixa e inadimplência por cliente.</p>
+      </div>
+    </div>
+
+    <div class="card" data-painel="coordenador" hidden>
+      <div class="card-head"><div><h3>Coordenador de contrato</h3><p>Saúde do contrato, prazo, horas e pendências</p></div><span class="badge badge-gray badge-plain">visão dedicada</span></div>
+      <div class="grid g4" style="margin-bottom:16px">
+        <article class="kpi crit"><span class="kpi-label">Progresso físico</span><span class="kpi-value">52%</span><span class="kpi-meta"><span>planejado 74%</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Horas consumidas</span><span class="kpi-value">72%</span><span class="kpi-meta"><span>do orçamento</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Atraso</span><span class="kpi-value">12 dias</span><span class="kpi-meta"><span>limite 5 dias</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Pendências do cliente</span><span class="kpi-value">4</span><span class="kpi-meta"><span>há 14 dias em média</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+      </div>
+      <div class="grid g2">
+        <p class="small mb0"><strong>Visualizações adequadas:</strong> Progresso planejado x realizado, Gantt de marcos, tabela de documentos, alterações de escopo.</p>
+        <p class="small mb0"><strong>Não deve aparecer:</strong> Margem de outros contratos e custo individual da equipe de outras áreas.</p>
+      </div>
+    </div>
+
+    <div class="card" data-painel="lider" hidden>
+      <div class="card-head"><div><h3>Líder de disciplina</h3><p>Equipe, entregas, carga e qualidade</p></div><span class="badge badge-gray badge-plain">visão dedicada</span></div>
+      <div class="grid g4" style="margin-bottom:16px">
+        <article class="kpi crit"><span class="kpi-label">Carga da equipe</span><span class="kpi-value">125%</span><span class="kpi-meta"><span>capacidade 100%</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Entregas na semana</span><span class="kpi-value">7</span><span class="kpi-meta"><span>2 atrasadas</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Revisões médias</span><span class="kpi-value">2,4</span><span class="kpi-meta"><span>meta 1,5</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Horas disponíveis</span><span class="kpi-value">−44 h</span><span class="kpi-meta"><span>em julho</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+      </div>
+      <div class="grid g2">
+        <p class="small mb0"><strong>Visualizações adequadas:</strong> Histograma de recursos, lista priorizada de entregas, revisões por documento.</p>
+        <p class="small mb0"><strong>Não deve aparecer:</strong> Receita, faturamento e margem do contrato.</p>
+      </div>
+    </div>
+
+    <div class="card" data-painel="financeiro" hidden>
+      <div class="card-head"><div><h3>Financeiro</h3><p>Faturamento, recebimento, custos e caixa</p></div><span class="badge badge-gray badge-plain">visão dedicada</span></div>
+      <div class="grid g4" style="margin-bottom:16px">
+        <article class="kpi warn"><span class="kpi-label">Faturado no mês</span><span class="kpi-value">R$ 1.180 mil</span><span class="kpi-meta"><span>−11,3% vs. jun</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Recebido</span><span class="kpi-value">R$ 1.090 mil</span><span class="kpi-meta"><span>PMR 43 dias</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">A faturar</span><span class="kpi-value">R$ 210 mil</span><span class="kpi-meta"><span>retido por documentos</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Custo direto</span><span class="kpi-value">R$ 896 mil</span><span class="kpi-meta"><span>69,5% da receita</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+      </div>
+      <div class="grid g2">
+        <p class="small mb0"><strong>Visualizações adequadas:</strong> Linha produzido/faturado/recebido, aging de recebíveis, cascata de custos.</p>
+        <p class="small mb0"><strong>Não deve aparecer:</strong> Detalhe técnico de revisões e conteúdo de documentos.</p>
+      </div>
+    </div>
+
+    <div class="card" data-painel="comercial" hidden>
+      <div class="card-head"><div><h3>Comercial</h3><p>Pipeline, propostas, conversão e backlog</p></div><span class="badge badge-gray badge-plain">visão dedicada</span></div>
+      <div class="grid g4" style="margin-bottom:16px">
+        <article class="kpi info"><span class="kpi-label">Oportunidades</span><span class="kpi-value">64</span><span class="kpi-meta"><span>no trimestre</span></span><span><span class="badge badge-blue">Informativo</span></span></article>
+        <article class="kpi info"><span class="kpi-label">Propostas</span><span class="kpi-value">38</span><span class="kpi-meta"><span>59% de avanço</span></span><span><span class="badge badge-blue">Informativo</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Conversão final</span><span class="kpi-value">10,9%</span><span class="kpi-meta"><span>7 contratos ganhos</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Backlog</span><span class="kpi-value">R$ 7.520 mil</span><span class="kpi-meta"><span>em queda</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+      </div>
+      <div class="grid g2">
+        <p class="small mb0"><strong>Visualizações adequadas:</strong> Funil comercial, evolução do backlog, receita potencial por cliente.</p>
+        <p class="small mb0"><strong>Não deve aparecer:</strong> Custo-hora da equipe e margem por colaborador.</p>
+      </div>
+    </div>
+
+    <div class="card" data-painel="colaborador" hidden>
+      <div class="card-head"><div><h3>Colaborador</h3><p>Tarefas, horas, prazos e documentos</p></div><span class="badge badge-gray badge-plain">visão dedicada</span></div>
+      <div class="grid g4" style="margin-bottom:16px">
+        <article class="kpi warn"><span class="kpi-label">Atividades atribuídas</span><span class="kpi-value">6</span><span class="kpi-meta"><span>2 vencem hoje</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi info"><span class="kpi-label">Horas planejadas</span><span class="kpi-value">168 h</span><span class="kpi-meta"><span>no mês</span></span><span><span class="badge badge-blue">Informativo</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Horas apontadas</span><span class="kpi-value">142 h</span><span class="kpi-meta"><span>falta apontar 3 dias</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi crit"><span class="kpi-label">Documentos aguardando ação</span><span class="kpi-value">3</span><span class="kpi-meta"><span>1 crítico</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+      </div>
+      <div class="grid g2">
+        <p class="small mb0"><strong>Visualizações adequadas:</strong> Lista priorizada de tarefas, calendário de prazos, documentos atribuídos.</p>
+        <p class="small mb0"><strong>Não deve aparecer:</strong> Margem, custo da equipe e avaliação de desempenho de terceiros.</p>
+      </div>
+    </div>
+
+    <div class="card" data-painel="cliente" hidden>
+      <div class="card-head"><div><h3>Cliente</h3><p>Progresso, entregas, decisões e marcos</p></div><span class="badge badge-gray badge-plain">visão dedicada</span></div>
+      <div class="grid g4" style="margin-bottom:16px">
+        <article class="kpi warn"><span class="kpi-label">Progresso do contrato</span><span class="kpi-value">52%</span><span class="kpi-meta"><span>entregas em dia: 18 de 26</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi info"><span class="kpi-label">Próximo marco</span><span class="kpi-value">15/08/2026</span><span class="kpi-meta"><span>emissão para obra</span></span><span><span class="badge badge-blue">Informativo</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Pendências com o cliente</span><span class="kpi-value">4</span><span class="kpi-meta"><span>aguardando definição</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+        <article class="kpi info"><span class="kpi-label">Alterações aprovadas</span><span class="kpi-value">1</span><span class="kpi-meta"><span>2 em negociação</span></span><span><span class="badge badge-blue">Informativo</span></span></article>
+      </div>
+      <div class="grid g2">
+        <p class="small mb0"><strong>Visualizações adequadas:</strong> Gantt de marcos, lista de entregas, decisões aguardadas, riscos compartilhados.</p>
+        <p class="small mb0"><strong>Não deve aparecer:</strong> Margem interna, custo da equipe, desempenho individual e qualquer informação financeira interna.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Resumo por papel</h2><span class="rule"></span></div>
+  <div class="table-wrap"><table class="responsive">
+    <thead><tr><th>Perfil</th><th>Principal interesse</th><th>O que não deve aparecer</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Perfil"><strong>Diretoria</strong></td><td data-l="Principal interesse">Resultado, caixa, margem, carteira e risco</td><td data-l="O que não deve aparecer">Lista de documentos, apontamentos individuais, detalhe de atividades.</td></tr>
+      <tr><td data-l="Perfil"><strong>Gerente de engenharia</strong></td><td data-l="Principal interesse">Capacidade, desempenho técnico e prioridades</td><td data-l="O que não deve aparecer">Fluxo de caixa e inadimplência por cliente.</td></tr>
+      <tr><td data-l="Perfil"><strong>Coordenador de contrato</strong></td><td data-l="Principal interesse">Saúde do contrato, prazo, horas e pendências</td><td data-l="O que não deve aparecer">Margem de outros contratos e custo individual da equipe de outras áreas.</td></tr>
+      <tr><td data-l="Perfil"><strong>Líder de disciplina</strong></td><td data-l="Principal interesse">Equipe, entregas, carga e qualidade</td><td data-l="O que não deve aparecer">Receita, faturamento e margem do contrato.</td></tr>
+      <tr><td data-l="Perfil"><strong>Financeiro</strong></td><td data-l="Principal interesse">Faturamento, recebimento, custos e caixa</td><td data-l="O que não deve aparecer">Detalhe técnico de revisões e conteúdo de documentos.</td></tr>
+      <tr><td data-l="Perfil"><strong>Comercial</strong></td><td data-l="Principal interesse">Pipeline, propostas, conversão e backlog</td><td data-l="O que não deve aparecer">Custo-hora da equipe e margem por colaborador.</td></tr>
+      <tr><td data-l="Perfil"><strong>Colaborador</strong></td><td data-l="Principal interesse">Tarefas, horas, prazos e documentos</td><td data-l="O que não deve aparecer">Margem, custo da equipe e avaliação de desempenho de terceiros.</td></tr>
+      <tr><td data-l="Perfil"><strong>Cliente</strong></td><td data-l="Principal interesse">Progresso, entregas, decisões e marcos</td><td data-l="O que não deve aparecer">Margem interna, custo da equipe, desempenho individual e qualquer informação financeira interna.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="section">
+  <div class="note"><strong>Regra da visão externa:</strong> a dashboard do cliente compartilha progresso, marcos, entregas, pendências e riscos. Margem, custo de equipe, desempenho individual e avaliações internas nunca aparecem — não por sigilo formal apenas, mas porque induzem a discussões que não pertencem àquela relação.</div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>Mesma fonte de dados, níveis de detalhe diferentes.</li>
+      <li>Cada perfil precisa de KPIs ligados às decisões que ele realmente toma.</li>
+      <li>A diretoria quer consolidado e tendência; o líder quer nome, prazo e carga.</li>
+      <li>A visão do cliente é uma decisão de comunicação, não apenas de permissão.</li>
+    </ul>
+  </div>
+</section>

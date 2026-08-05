@@ -1,0 +1,108 @@
+<!--
+  MOD-06 · Filtros e navegação analítica
+  A demonstração interativa é totalmente redesenhada por js/pages/filtros.js
+  a cada mudança de filtro: aqui ficam apenas os contêineres e os controles.
+-->
+<section class="section">
+  <div class="section-title"><h2>Os oito mecanismos</h2><span class="rule"></span></div>
+  <div class="grid g4">
+    <article class="card"><h3>Filtros globais</h3><p class="small mb0">Afetam toda a tela: período, cliente, contrato, disciplina, unidade, coordenador e situação. Devem ficar no topo e permanecer visíveis enquanto estiverem ativos.</p></article>
+    <article class="card"><h3>Filtros locais</h3><p class="small mb0">Afetam um único componente. No painel de recursos, por exemplo: especialidade, tipo de vínculo, necessário ou disponível.</p></article>
+    <article class="card"><h3>Drill-down</h3><p class="small mb0">Aprofunda dentro da mesma hierarquia: empresa → cliente → contrato → disciplina → atividade → documento.</p></article>
+    <article class="card"><h3>Drill-through</h3><p class="small mb0">Abre outra página com o detalhe completo: do contrato crítico para a página do contrato, com cronograma, equipe, documentos, custos e histórico.</p></article>
+    <article class="card"><h3>Cross-filter</h3><p class="small mb0">Clicar em um elemento filtra os demais componentes. Clicar em CIV faz toda a tela falar de CIV.</p></article>
+    <article class="card"><h3>Tooltip</h3><p class="small mb0">Informação complementar sob demanda, sem ocupar espaço permanente na tela.</p></article>
+    <article class="card"><h3>Breadcrumb</h3><p class="small mb0">O caminho percorrido na análise, sempre visível: Empresa &gt; Cliente &gt; Contrato &gt; Disciplina.</p></article>
+    <article class="card"><h3>Histórico de filtros</h3><p class="small mb0">Voltar à visualização anterior, limpar tudo, salvar uma visão e compartilhá-la já filtrada.</p></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Demonstração interativa</h2><span class="rule"></span>
+    <span class="tiny muted">clique nas barras para aplicar cross-filter</span>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between;align-items:flex-end;margin-bottom:16px">
+      <div class="row">
+        <label class="fld">Cliente
+          <select id="f-cliente">
+            <option value="todos">Todos os clientes</option>
+            <option value="Delta">Delta</option>
+            <option value="Refinor">Refinor</option>
+            <option value="Vanto">Vanto</option>
+            <option value="Petromar">Petromar</option>
+          </select>
+        </label>
+        <label class="fld">Situação
+          <select id="f-saude">
+            <option value="todos">Todas</option>
+            <option value="crit">Crítico</option>
+            <option value="warn">Atenção</option>
+            <option value="ok">Dentro da meta</option>
+          </select>
+        </label>
+      </div>
+      <button class="btn btn-sm" type="button" id="f-limpar">Limpar todos os filtros</button>
+    </div>
+
+    <p class="breadcrumb" id="f-crumb"></p>
+    <div class="chip-filtros" id="f-chips" style="margin-bottom:16px"></div>
+    <div class="grid g4" id="f-kpis" style="margin-bottom:18px"></div>
+
+    <div class="grid g2">
+      <div>
+        <h4 class="small" style="text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)">Horas realizadas por disciplina</h4>
+        <div id="f-chart"></div>
+        <p class="tiny muted">Clique em uma barra para filtrar a tabela. Clique novamente para remover.</p>
+      </div>
+      <div>
+        <h4 class="small" style="text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)">Contratos no recorte atual</h4>
+        <div id="f-tab"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid g2">
+
+    <section class="card">
+      <div class="card-head"><div><h3>Caminho de investigação</h3><p>do sintoma até a causa</p></div></div>
+      <ol class="fluxo">
+        <li><strong>Margem abaixo da meta</strong><span>Sintoma consolidado da carteira.</span></li>
+        <li><strong>Contrato responsável</strong><span>DQM24001 concentra 65% do desvio.</span></li>
+        <li><strong>Disciplina responsável</strong><span>CIV, com 410 horas acima do orçado.</span></li>
+        <li><strong>Atividade responsável</strong><span>Detalhamento civil, em revisão contínua.</span></li>
+        <li><strong>Documentos afetados</strong><span>Nove documentos com mais de duas revisões.</span></li>
+        <li><strong>Origem da alteração</strong><span>Quatro aguardam definição do cliente.</span></li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><div><h3>O que um bom tooltip mostra</h3></div></div>
+      <div class="formula"><span class="formula-label">Tooltip · ponto do gráfico</span>Contrato:          DQM24001
+Mês:               julho/2026
+Horas orçadas:     1.850
+Horas realizadas:  2.120
+Desvio:            +270 h (+14,6%)
+Responsável:       Líder CIV</div>
+      <p class="small">O tooltip complementa, não substitui. Se a informação é necessária para a decisão, ela precisa estar visível na tela.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Esconder o dado essencial dentro do tooltip — em telas de toque, ele muitas vezes nem aparece.</p>
+    </section>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>Filtro ativo precisa estar visível: recorte invisível gera conclusão errada.</li>
+      <li>Drill-down aprofunda na hierarquia; drill-through muda de página.</li>
+      <li>Cross-filter mantém a tela coerente com um único clique.</li>
+      <li>Toda análise deve poder voltar ao estado anterior e ser compartilhada já filtrada.</li>
+    </ul>
+  </div>
+</section>

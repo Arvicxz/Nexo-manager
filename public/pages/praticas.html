@@ -1,0 +1,168 @@
+<!--
+  MOD-11 · Boas práticas
+  Pares “incorreto x correto”. Só os exemplos que dependem de DATA
+  (rosca, barras, KPI com histórico e alerta real) entram por [data-slot].
+-->
+<section class="section">
+  <div class="section-title"><h2>Incorreto x correto</h2><span class="rule"></span></div>
+
+  <section class="card" style="margin-bottom:16px">
+    <h3>Número sem contexto</h3>
+    <div class="compare" style="margin-top:12px">
+      <div class="bad">
+        <h4>Incorreto</h4>
+        <p class="mb0 mono">Horas: 2.400</p>
+        <p class="tiny muted" style="margin:10px 0 0">Muito ou pouco? Comparado a quê?</p>
+      </div>
+      <div class="good">
+        <h4>Correto</h4>
+        <div class="formula"><span class="formula-label">Com contexto</span>Horas realizadas:            2.400
+Horas planejadas no período: 2.050
+Desvio:                      +350 h
+Variação:                    +17,1%
+Progresso físico:            50%</div>
+        <p class="tiny muted" style="margin:10px 0 0">Agora o número sustenta uma decisão.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:16px">
+    <h3>Composição com muitas categorias</h3>
+    <div class="compare" style="margin-top:12px">
+      <div class="bad">
+        <h4>Incorreto</h4>
+        <div style="max-width:190px;margin:auto" data-slot="pizza-ruim"></div>
+        <p class="tiny muted" style="margin:10px 0 0">Oito fatias quase iguais: impossível ordenar de olho.</p>
+      </div>
+      <div class="good">
+        <h4>Correto</h4>
+        <div data-slot="barras-ordenadas"></div>
+        <p class="tiny muted" style="margin:10px 0 0">Barras ordenadas: a comparação é imediata.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:16px">
+    <h3>Vermelho decorativo</h3>
+    <div class="compare" style="margin-top:12px">
+      <div class="bad">
+        <h4>Incorreto</h4>
+        <div class="grid g2" style="gap:8px">
+          <article class="kpi crit"><span class="kpi-label">Documentos emitidos</span><span class="kpi-value">812</span><span class="kpi-meta"></span><span><span class="badge badge-red">Crítico</span></span></article>
+          <article class="kpi crit"><span class="kpi-label">Receita do mês</span><span class="kpi-value">R$ 1.290 mil</span><span class="kpi-meta"></span><span><span class="badge badge-red">Crítico</span></span></article>
+        </div>
+        <p class="tiny muted" style="margin:10px 0 0">Se tudo é vermelho, o vermelho perde a função de alarme.</p>
+      </div>
+      <div class="good">
+        <h4>Correto</h4>
+        <div class="grid g2" style="gap:8px">
+          <article class="kpi info"><span class="kpi-label">Documentos emitidos</span><span class="kpi-value">812</span><span class="kpi-meta"><span>Meta 840</span><span>dentro do esperado</span></span><span><span class="badge badge-blue">Informativo</span></span></article>
+          <article class="kpi crit"><span class="kpi-label">Margem bruta</span><span class="kpi-value">43,0%</span><span class="kpi-meta"><span>Meta 48%</span><span>6 meses em queda</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        </div>
+        <p class="tiny muted" style="margin:10px 0 0">Vermelho reservado para o que realmente exige ação.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:16px">
+    <h3>KPI sem meta</h3>
+    <div class="compare" style="margin-top:12px">
+      <div class="bad">
+        <h4>Incorreto</h4>
+        <article class="kpi info"><span class="kpi-label">Taxa de utilização</span><span class="kpi-value">88,1%</span><span class="kpi-meta"></span></article>
+        <p class="tiny muted" style="margin:10px 0 0">Informa, mas não avalia. Bom ou ruim?</p>
+      </div>
+      <div class="good">
+        <h4>Correto</h4>
+        <div data-slot="kpi-completo"></div>
+        <p class="tiny muted" style="margin:10px 0 0">Valor, meta, comparação, tendência e semáforo com texto.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:16px">
+    <h3>Alerta sem responsável</h3>
+    <div class="compare" style="margin-top:12px">
+      <div class="bad">
+        <h4>Incorreto</h4>
+        <p class="mb0 mono">⚠ Contrato em vermelho.</p>
+        <p class="tiny muted" style="margin:10px 0 0">Ninguém foi acionado. Em duas semanas, vira paisagem.</p>
+      </div>
+      <div class="good">
+        <h4>Correto</h4>
+        <div data-slot="alerta-completo"></div>
+        <p class="tiny muted" style="margin:10px 0 0">Limite, causa, impacto, responsável, ação e prazo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:16px">
+    <h3>Semáforo apenas por cor</h3>
+    <div class="compare" style="margin-top:12px">
+      <div class="bad">
+        <h4>Incorreto</h4>
+        <p class="mb0"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--c-green)"></span> <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--c-amber)"></span> <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--c-red)"></span></p>
+        <p class="tiny muted" style="margin:10px 0 0">Inacessível para quem não distingue as cores e ambíguo ao ser impresso.</p>
+      </div>
+      <div class="good">
+        <h4>Correto</h4>
+        <p class="mb0"><span class="badge badge-green">Dentro da meta</span> <span class="badge badge-amber">Atenção</span> <span class="badge badge-red">Crítico</span></p>
+        <p class="tiny muted" style="margin:10px 0 0">A cor reforça o texto; ela não carrega a informação sozinha.</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Princípios visuais</h2><span class="rule"></span></div>
+  <div class="grid g3">
+    <article class="card"><h3>Hierarquia</h3><p class="small mb0">O que é mais importante aparece primeiro e maior. A ordem da tela é uma afirmação sobre prioridades.</p></article>
+    <article class="card"><h3>Consistência</h3><p class="small mb0">O mesmo indicador com o mesmo nome, fórmula, unidade, cor e significado em todas as telas.</p></article>
+    <article class="card"><h3>Cor com significado</h3><p class="small mb0">Verde dentro do esperado, amarelo atenção, vermelho crítico, azul informação neutra, roxo previsão, cinza indisponível.</p></article>
+    <article class="card"><h3>Legibilidade</h3><p class="small mb0">Sem gráficos 3D, sem excesso de bordas, sem abreviações não explicadas, sem casas decimais desnecessárias.</p></article>
+    <article class="card"><h3>Contexto</h3><p class="small mb0">Todo número acompanhado de referência: meta, período anterior, plano ou média da carteira.</p></article>
+    <article class="card"><h3>Atualização</h3><p class="small mb0">Data da última carga, fonte, dados incompletos, períodos não fechados e indicadores provisórios sempre declarados.</p></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid g2">
+
+    <section class="card">
+      <div class="card-head"><div><h3>Acessibilidade</h3><p>requisitos mínimos, não opcionais</p></div></div>
+      <ul class="small mb0">
+        <li>Contraste adequado entre texto e fundo.</li>
+        <li>Navegação completa por teclado, com foco visível.</li>
+        <li>Status nunca dependente apenas de cor — sempre com texto.</li>
+        <li>Ícones acompanhados de rótulo.</li>
+        <li>Textos alternativos em gráficos e imagens.</li>
+        <li>Área clicável confortável em telas de toque.</li>
+        <li>Movimento reduzido respeitado para quem configurou isso no sistema.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><div><h3>Responsividade</h3><p>a mesma informação, densidades diferentes</p></div></div>
+      <ul class="small mb0">
+        <li><strong>Desktop:</strong> barra lateral fixa, grade ampla, comparações lado a lado.</li>
+        <li><strong>Tablet:</strong> duas colunas, barra lateral recolhível, cartões adaptáveis.</li>
+        <li><strong>Smartphone:</strong> coluna única, filtros em gaveta, gráficos simplificados e tabelas convertidas em cartões.</li>
+      </ul>
+      <p class="small" style="margin-top:10px">Reduza a densidade, não a clareza: um KPI sem meta continua inútil em qualquer tamanho de tela.</p>
+    </section>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>Número sem referência não sustenta decisão.</li>
+      <li>Barras comparam melhor que ângulos.</li>
+      <li>Cor é linguagem: use vermelho só quando houver ação a tomar.</li>
+      <li>Semáforo sempre acompanhado de texto.</li>
+      <li>Declarar a data de atualização e os dados incompletos é parte da informação.</li>
+    </ul>
+  </div>
+</section>

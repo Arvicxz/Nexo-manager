@@ -1,0 +1,285 @@
+<!--
+  MOD-05 · Biblioteca de gráficos
+  A galeria é editorial; cada exemplo visual entra por um [data-slot].
+  As recomendações do comparador ficam em <template data-cmp>.
+-->
+<section class="section">
+  <div class="section-title">
+    <h2>Comparador de gráficos</h2><span class="rule"></span>
+    <span class="tiny muted">diga o que precisa mostrar</span>
+  </div>
+
+  <div class="card">
+    <label class="fld" style="max-width:420px">O que você precisa mostrar?
+      <select id="cmp-sel">
+        <option value="tempo">Quero mostrar evolução no tempo</option>
+        <option value="categorias">Quero comparar categorias</option>
+        <option value="composicao">Quero mostrar composição de um total</option>
+        <option value="concentracao">Quero identificar concentração</option>
+        <option value="relacao">Quero relacionar duas variáveis</option>
+        <option value="meta">Quero comparar resultado e meta</option>
+        <option value="etapas">Quero mostrar etapas de um processo</option>
+        <option value="cronograma">Quero mostrar cronograma</option>
+        <option value="formacao">Quero explicar a formação de um valor</option>
+      </select>
+    </label>
+    <div id="cmp-out" class="grid g4" style="margin-top:18px" aria-live="polite"></div>
+  </div>
+
+  <template data-cmp="tempo">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Gráfico de linha</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Gráfico de área, quando o acúmulo importa</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Pizza e radar</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">A linha preserva a continuidade do tempo e revela tendência, sazonalidade e ponto de inflexão.</p></div>
+  </template>
+
+  <template data-cmp="categorias">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Barras verticais (ou horizontais, se os nomes forem longos)</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Barras agrupadas, para duas séries</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Pizza com muitas fatias</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">O olho compara comprimentos com precisão; compara ângulos muito mal.</p></div>
+  </template>
+
+  <template data-cmp="composicao">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Barras empilhadas</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Rosca, apenas com 3 ou 4 categorias</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Pizza com 8 categorias</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">A barra empilhada mostra o total e a composição ao mesmo tempo, e ainda permite comparar períodos.</p></div>
+  </template>
+
+  <template data-cmp="concentracao">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Mapa de calor</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Barras horizontais ordenadas</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Linha com muitas séries</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">O mapa de calor mostra onde a intensidade se concentra em duas dimensões — disciplina e mês, por exemplo.</p></div>
+  </template>
+
+  <template data-cmp="relacao">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Gráfico de dispersão</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Gráfico de bolhas, para incluir uma terceira variável</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Duas linhas com escalas diferentes</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">A dispersão testa se existe relação entre duas variáveis; a bolha acrescenta magnitude sem poluir.</p></div>
+  </template>
+
+  <template data-cmp="meta">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Bullet chart</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Barra com linha de meta</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Velocímetro</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">O bullet compara valor, meta e faixas de desempenho ocupando uma fração do espaço de um velocímetro.</p></div>
+  </template>
+
+  <template data-cmp="etapas">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Funil</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Barras horizontais com taxa de conversão</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Pizza</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">O funil evidencia onde a perda entre etapas acontece.</p></div>
+  </template>
+
+  <template data-cmp="cronograma">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Gantt</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Linha do tempo com marcos</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Tabela sem representação temporal</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">Duração, sobreposição e dependência só ficam evidentes no eixo do tempo.</p></div>
+  </template>
+
+  <template data-cmp="formacao">
+    <div class="card" style="border-top:3px solid var(--c-green)"><p class="eyebrow">Recomendado</p><p class="mb0"><strong>Gráfico de cascata</strong></p></div>
+    <div class="card" style="border-top:3px solid var(--c-blue)"><p class="eyebrow">Alternativa</p><p class="mb0">Barras empilhadas</p></div>
+    <div class="card" style="border-top:3px solid var(--c-red)"><p class="eyebrow">Evitar</p><p class="mb0">Apenas o número final</p></div>
+    <div class="card"><p class="eyebrow">Por quê</p><p class="small mb0">A cascata explica como um valor inicial vira o resultado final, parcela por parcela.</p></div>
+  </template>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Galeria</h2><span class="rule"></span></div>
+  <div class="grid g2">
+
+    <article class="card">
+      <div class="card-head"><div><h3>Gráfico de linha</h3><p>Como o indicador evoluiu ao longo do tempo?</p></div></div>
+      <div data-slot="g-linha"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Receita mensal, margem, horas, progresso, produtividade e pendências.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Categorias sem ordem natural, ou mais de quatro séries na mesma área.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Margem bruta da carteira mês a mês, com linha de meta.</p>
+      <p class="tiny muted mb0"><strong>Interações:</strong> Tooltip, seleção de período, linha de meta, linha de tendência, zoom temporal.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Cortar o eixo Y para exagerar variações pequenas.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Barras verticais</h3><p>Qual categoria tem o maior ou o menor valor?</p></div></div>
+      <div data-slot="g-barras"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Receita por contrato, horas por disciplina, documentos por status.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Muitas categorias com nomes longos — nesse caso, use barras horizontais.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Horas realizadas por disciplina no contrato DQM24001.</p>
+      <p class="tiny muted mb0"><strong>Interações:</strong> Ordenação, cross-filter ao clicar, drill-down para atividade.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Começar o eixo em valor diferente de zero.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Barras horizontais</h3><p>Qual é o ranking?</p></div></div>
+      <div data-slot="g-ranking"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Rankings e nomes longos: contratos com maior atraso, clientes com maior receita.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Séries temporais.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Contratos ordenados por dias de atraso.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Deixar as barras fora de ordem em um ranking.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Barras agrupadas</h3><p>Como duas séries se comparam?</p></div></div>
+      <div data-slot="g-agrupadas"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Planejado x realizado, necessário x disponível, receita x custo.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Mais de três séries por categoria.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Horas orçadas contra realizadas por disciplina.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Agrupar séries com unidades diferentes no mesmo eixo.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Barras empilhadas</h3><p>Como o total é composto?</p></div></div>
+      <div data-slot="g-empilhadas"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Custos por categoria, horas por disciplina em cada mês, receita por contrato.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Comparar precisamente as fatias do meio entre períodos.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Composição mensal do custo direto.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Empilhar dez categorias e tornar a leitura impossível.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Gráfico de área</h3><p>Como o volume evolui ou se acumula?</p></div></div>
+      <div data-slot="g-area"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Backlog, receita acumulada, horas acumuladas, consumo de orçamento.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Muitas séries sobrepostas — vira mancha.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Backlog contratado ao longo do ano.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Usar área para valores que sobem e descem muito.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Cascata (waterfall)</h3><p>Como o valor inicial se transforma no resultado final?</p></div></div>
+      <div data-slot="g-cascata"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Formação de margem, variação de resultado entre dois períodos.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Séries temporais longas.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Receita menos MOD, CPE, terceiros e despesas até chegar à margem.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Omitir uma parcela e deixar a soma não fechar.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Mapa de calor</h3><p>Onde está a concentração?</p></div></div>
+      <div data-slot="g-heatmap"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Alocação de recursos, atrasos por contrato e mês, riscos por probabilidade e impacto.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Poucas células — uma tabela simples comunica melhor.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Diferença entre pessoas necessárias e disponíveis por disciplina e mês.</p>
+      <p class="tiny muted mb0"><strong>Interações:</strong> Clique na célula para abrir a disciplina no mês selecionado.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Escala de cor sem legenda ou sem valor escrito na célula.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Dispersão e bolhas</h3><p>Existe relação entre duas variáveis?</p></div></div>
+      <div data-slot="g-scatter"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Margem x atraso, horas x progresso, complexidade x revisões.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Poucas observações — três pontos não formam relação.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Carteira de contratos: eixo X margem prevista, eixo Y atraso, tamanho o valor do contrato, cor o risco. O quadrante superior esquerdo concentra contratos grandes, atrasados e pouco rentáveis.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Concluir causalidade a partir de correlação.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Funil</h3><p>Onde ocorrem as perdas entre etapas?</p></div></div>
+      <div data-slot="g-funil"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Pipeline comercial: oportunidades, propostas, negociações, contratos ganhos.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Etapas que não são sequenciais.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Conversão comercial do trimestre, com taxa entre etapas.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Usar funil para categorias que não têm ordem.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Gantt</h3><p>Quando cada atividade acontece e quanto dura?</p></div></div>
+      <div data-slot="g-gantt"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Cronograma contratual, marcos, dependências e caminho crítico.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Visão executiva de alto nível com centenas de linhas.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Etapas do DQM24001 com marcos contratuais.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Mostrar o cronograma inteiro para a diretoria em vez dos marcos.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Bullet chart</h3><p>Qual o desempenho em relação à meta e às faixas?</p></div></div>
+      <div style="max-width:440px" data-slot="g-bullet"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Margem, progresso, utilização, SLA e produtividade contra meta.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Quando não existe meta definida.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Painel de KPIs executivos com meta e faixas de aceitação.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Colocar faixas coloridas sem definir o que cada faixa significa.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Velocímetro (gauge)</h3><p>Qual o valor atual em uma escala única?</p></div></div>
+      <div style="max-width:260px;margin:auto" data-slot="g-gauge"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Um único indicador, com meta clara e faixas objetivas.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Painéis com vários indicadores — ocupa muito espaço para pouca informação.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Indicador único em um totem ou telão de operação.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Encher a dashboard de velocímetros decorativos.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Pizza e rosca</h3><p>Qual a participação de cada parte no todo?</p></div></div>
+      <div style="max-width:240px;margin:auto" data-slot="g-donut"></div>
+      <div class="legend">
+        <span><i style="background:var(--c-blue)"></i>MOD</span>
+        <span><i style="background:var(--c-purple)"></i>CPE</span>
+        <span><i style="background:var(--c-gray)"></i>Despesas</span>
+        <span><i style="background:var(--c-green)"></i>Margem</span>
+      </div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Poucas categorias, soma igual a 100%, diferenças visíveis.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Mais de cinco fatias, ou comparação entre dois períodos.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Composição do resultado de um único mês.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Dez fatias com percentuais próximos — ninguém consegue ler.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div><h3>Radar</h3><p>Como o desempenho se distribui entre várias dimensões?</p></div></div>
+      <div style="max-width:300px;margin:auto" data-slot="g-radar"></div>
+      <div class="grid g2" style="gap:8px;margin-top:14px">
+        <p class="small mb0"><strong>Quando usar:</strong> Avaliação qualitativa de maturidade ou percepção.</p>
+        <p class="small mb0"><strong>Quando evitar:</strong> Decisões financeiras que exigem leitura numérica precisa.</p>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Avaliação multidimensional de um contrato.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Comparar mais de duas séries no mesmo radar.</p>
+    </article>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>A pergunta vem antes do gráfico.</li>
+      <li>Barras comparam melhor que ângulos: pizza só com poucas categorias.</li>
+      <li>Bullet chart substitui velocímetro na maioria das dashboards.</li>
+      <li>Cascata explica a formação do resultado; mapa de calor mostra onde ele dói.</li>
+      <li>Radar serve para percepção qualitativa, não para decisão financeira.</li>
+    </ul>
+  </div>
+</section>

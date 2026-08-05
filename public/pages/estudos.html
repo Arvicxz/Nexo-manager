@@ -1,0 +1,156 @@
+<!--
+  MOD-10 · Estudo de caso · DQM24001
+  Os nove passos já existem no DOM; avançar na investigação revela o próximo.
+  Só os gráficos e a tabela de revisões dependem de DATA.
+-->
+<section class="section">
+  <div class="card" style="border-left:3px solid var(--c-red)">
+    <div class="grid g4">
+      <article class="kpi crit"><span class="kpi-label">Margem bruta da carteira</span><span class="kpi-value">43,0<small>%</small></span><span class="kpi-meta"><span>Meta 48%</span><span class="delta-down">−4,5 p.p. no ano</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+      <article class="kpi crit"><span class="kpi-label">Tendência</span><span class="kpi-value">Queda</span><span class="kpi-meta"><span>6 meses consecutivos</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+      <article class="kpi warn"><span class="kpi-label">Contratos abaixo da meta</span><span class="kpi-value">3</span><span class="kpi-meta"><span>de 5 na carteira</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+      <article class="kpi crit"><span class="kpi-label">Exposição</span><span class="kpi-value">R$ 4.200<small> mil</small></span><span class="kpi-meta"><span>contrato mais crítico</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Caminho da análise</h2><span class="rule"></span><span class="tiny muted">nove passos</span></div>
+
+  <div id="caso-passos" class="stack">
+
+    <div class="card" id="caso-vazio" hidden>
+      <p class="mb0 small muted">A investigação começa com um número fora da meta. Avance para descobrir de onde ele vem.</p>
+    </div>
+
+    <article class="card" data-passo="1" hidden>
+      <p class="eyebrow">Passo 01</p>
+      <h3 style="margin:6px 0 10px">O sintoma</h3>
+      <p class="small">A visão executiva mostra margem bruta de 43% contra meta de 48%, em queda há seis meses. O valor isolado ainda não é catastrófico; a tendência é o que exige decisão.</p>
+      <div data-slot="passo-margem"></div>
+    </article>
+
+    <article class="card" data-passo="2" hidden>
+      <p class="eyebrow">Passo 02</p>
+      <h3 style="margin:6px 0 10px">Quais contratos puxam o resultado</h3>
+      <p class="small">Três contratos estão abaixo da meta. O DQM24001 responde por 65% do desvio da carteira: é o maior efeito com o menor número de decisões.</p>
+      <div data-slot="passo-contratos"></div>
+    </article>
+
+    <article class="card" data-passo="3" hidden>
+      <p class="eyebrow">Passo 03</p>
+      <h3 style="margin:6px 0 10px">Horas contra progresso</h3>
+      <p class="small">O DQM24001 consumiu 72% das horas orçadas e concluiu 52% do escopo. As curvas se separaram em abril: o problema tem três meses, não um.</p>
+      <div data-slot="passo-progresso"></div>
+    </article>
+
+    <article class="card" data-passo="4" hidden>
+      <p class="eyebrow">Passo 04</p>
+      <h3 style="margin:6px 0 10px">Qual disciplina</h3>
+      <p class="small">O desvio não está espalhado: das 490 horas excedentes, 410 estão na CIV — 22% acima do orçado. As demais disciplinas estão dentro do previsto.</p>
+      <div data-slot="passo-disciplina"></div>
+    </article>
+
+    <article class="card" data-passo="5" hidden>
+      <p class="eyebrow">Passo 05</p>
+      <h3 style="margin:6px 0 10px">Documentos com retrabalho</h3>
+      <p class="small">Nove documentos passaram de duas revisões. Metade das revisões nasceu de alteração de premissa do cliente; a outra metade é retrabalho interno. Essa separação muda a ação e a conversa comercial.</p>
+      <div data-slot="passo-revisoes"></div>
+    </article>
+
+    <article class="card" data-passo="6" hidden>
+      <p class="eyebrow">Passo 06</p>
+      <h3 style="margin:6px 0 10px">Pendências do cliente</h3>
+      <p class="small">Quatro documentos aguardam definição externa há 14 dias em média. Sem esse registro, a equipe é cobrada por um prazo que não controla.</p>
+      <div class="formula"><span class="formula-label">Registro da pendência</span>Documento:        DQM-EST-DE-0088
+Enviado em:       09/07/2026
+Aguardando:       definição de carga de piso
+Dias parados:     15
+Impacto:          marco de 15/08 em risco
+Registrado por:   coordenador do contrato</div>
+    </article>
+
+    <article class="card" data-passo="7" hidden>
+      <p class="eyebrow">Passo 07</p>
+      <h3 style="margin:6px 0 10px">Capacidade da equipe</h3>
+      <p class="small">A CIV precisa de 3 a 4 pessoas a mais em julho e agosto. A empresa tem gente suficiente no total, mas não na especialidade certa.</p>
+      <div data-slot="passo-capacidade"></div>
+    </article>
+
+    <article class="card" data-passo="8" hidden>
+      <p class="eyebrow">Passo 08</p>
+      <h3 style="margin:6px 0 10px">Forecast do encerramento</h3>
+      <p class="small">Mantido o ritmo atual, o contrato termina com margem de 38% e conclusão em novembro, um mês além do previsto. Ainda há tempo de agir — daqui a três meses, não haverá.</p>
+      <div class="grid g2">
+        <article class="kpi crit"><span class="kpi-label">Margem prevista</span><span class="kpi-value">38,0<small>%</small></span><span class="kpi-meta"><span>Meta 48%</span><span>R$ 378 mil abaixo do esperado</span></span><span><span class="badge badge-red">Crítico</span></span></article>
+        <article class="kpi warn"><span class="kpi-label">Conclusão provável</span><span class="kpi-value">nov/2026</span><span class="kpi-meta"><span>Meta out/2026</span><span>1 mês de atraso</span></span><span><span class="badge badge-amber">Atenção</span></span></article>
+      </div>
+    </article>
+
+    <article class="card" data-passo="9" hidden>
+      <p class="eyebrow">Passo 09</p>
+      <h3 style="margin:6px 0 10px">Plano de ação</h3>
+      <p class="small">A conclusão não é “a margem caiu”. É um conjunto de causas com donos diferentes — e cada uma exige uma decisão específica.</p>
+      <div class="table-wrap"><table class="responsive">
+        <thead><tr><th>Ação</th><th>Responsável</th><th>Prazo</th><th>Resultado esperado</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Ação">Reestimar horas restantes por disciplina</td><td data-l="Responsável">Coordenador</td><td data-l="Prazo">27/07</td><td data-l="Resultado esperado">Forecast confiável de encerramento</td></tr>
+          <tr><td data-l="Ação">Separar retrabalho interno de alteração de escopo</td><td data-l="Responsável">Líder CIV</td><td data-l="Prazo">29/07</td><td data-l="Resultado esperado">Base para pleito comercial</td></tr>
+          <tr><td data-l="Ação">Formalizar impacto das pendências do cliente</td><td data-l="Responsável">Coordenador</td><td data-l="Prazo">26/07</td><td data-l="Resultado esperado">Prazo renegociado por escrito</td></tr>
+          <tr><td data-l="Ação">Reprogramar a equipe civil de agosto</td><td data-l="Responsável">Gestor de recursos</td><td data-l="Prazo">25/07</td><td data-l="Resultado esperado">Superalocação eliminada</td></tr>
+          <tr><td data-l="Ação">Avaliar medição adicional ou aditivo</td><td data-l="Responsável">Gerente</td><td data-l="Prazo">31/07</td><td data-l="Resultado esperado">Recomposição de receita</td></tr>
+        </tbody>
+      </table></div>
+    </article>
+
+  </div>
+
+  <div class="row" style="margin-top:20px">
+    <button class="btn btn-primary" type="button" id="caso-next">Avançar na investigação</button>
+    <button class="btn" type="button" id="caso-all">Ver todos os passos</button>
+    <button class="btn btn-ghost" type="button" id="caso-reset">Recomeçar</button>
+    <span class="tiny muted" id="caso-cont" aria-live="polite"></span>
+  </div>
+</section>
+
+<section class="section" id="caso-fim" hidden>
+  <section class="card">
+    <div class="card-head"><div><h3>Conclusão da análise</h3><p>o problema nunca era só a margem</p></div></div>
+    <p class="small">O desvio resulta da combinação de consumo elevado de horas, baixo avanço físico, retrabalho concentrado em uma disciplina, pendências externas não formalizadas, alterações de escopo absorvidas sem registro e equipe mal distribuída. Cada uma dessas causas tem um responsável diferente e um prazo diferente.</p>
+    <p class="small mb0">É por isso que a dashboard não termina no gráfico: ela precisa chegar ao nome de quem age.</p>
+  </section>
+
+  <div class="grid g2" style="margin-top:16px">
+    <section class="card">
+      <div class="card-head"><div><h3>Acompanhamento — 30 dias depois</h3><p>o passo que quase toda dashboard esquece</p></div></div>
+      <div class="table-wrap"><table class="responsive">
+        <thead><tr><th>Indicador</th><th>Antes</th><th>Depois</th><th>Situação</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Indicador">Margem prevista</td><td data-l="Antes">38,0%</td><td data-l="Depois">44,5%</td><td data-l="Situação"><span class="badge badge-amber">Atenção</span></td></tr>
+          <tr><td data-l="Indicador">Superalocação CIV</td><td data-l="Antes">−4 pessoas</td><td data-l="Depois">−1 pessoa</td><td data-l="Situação"><span class="badge badge-amber">Atenção</span></td></tr>
+          <tr><td data-l="Indicador">Documentos atrasados</td><td data-l="Antes">12</td><td data-l="Depois">4</td><td data-l="Situação"><span class="badge badge-green">Dentro da meta</span></td></tr>
+          <tr><td data-l="Indicador">Pendências do cliente</td><td data-l="Antes">4</td><td data-l="Depois">1</td><td data-l="Situação"><span class="badge badge-green">Dentro da meta</span></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><div><h3>O que ainda não se resolveu</h3></div></div>
+      <p class="small">A margem prevista continua abaixo da meta de 48%. As ações estancaram a deterioração, mas parte do prejuízo já estava incorporada. O aprendizado vale para a próxima proposta: a estimativa original de horas da CIV era 18% menor do que a necessidade real do escopo.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Encerrar o ciclo sem registrar o aprendizado no orçamento do próximo contrato semelhante.</p>
+    </section>
+  </div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>A investigação desce do consolidado até o documento, sem pular etapas.</li>
+      <li>Um contrato costuma concentrar a maior parte do desvio da carteira.</li>
+      <li>Separar causa interna de causa externa muda a ação e a negociação.</li>
+      <li>Forecast define a urgência: agir agora ou registrar o prejuízo depois.</li>
+      <li>O ciclo só fecha quando o indicador é medido de novo após a intervenção.</li>
+    </ul>
+  </div>
+</section>

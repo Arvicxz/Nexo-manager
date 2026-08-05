@@ -1,0 +1,73 @@
+<!--
+  MOD-07 · Alertas e tomada de decisão
+  A central de alertas e o plano de ação vêm de DATA (js/pages/alertas.js).
+-->
+<section class="section">
+  <div class="section-title"><h2>Os cinco componentes de um alerta</h2><span class="rule"></span></div>
+  <div class="grid g3">
+    <article class="card"><p class="eyebrow">Componente 01</p><h3 style="margin:6px 0">O que aconteceu</h3><p class="small mb0">Descrição objetiva do fato, não do sentimento sobre o fato.</p></article>
+    <article class="card"><p class="eyebrow">Componente 02</p><h3 style="margin:6px 0">Qual limite foi ultrapassado</h3><p class="small mb0">O número medido e o limite definido previamente.</p></article>
+    <article class="card"><p class="eyebrow">Componente 03</p><h3 style="margin:6px 0">Qual é o impacto</h3><p class="small mb0">Em dinheiro, prazo ou risco — algo que justifique a interrupção do dia de alguém.</p></article>
+    <article class="card"><p class="eyebrow">Componente 04</p><h3 style="margin:6px 0">Quem é o responsável</h3><p class="small mb0">Uma pessoa com autoridade para mudar o rumo. Não uma área.</p></article>
+    <article class="card"><p class="eyebrow">Componente 05</p><h3 style="margin:6px 0">Qual ação é esperada</h3><p class="small mb0">Um verbo no infinitivo com prazo: revisar, replanejar, cobrar, formalizar.</p></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Insuficiente x adequado</h2><span class="rule"></span></div>
+  <div class="compare">
+    <div class="bad">
+      <h4>Insuficiente</h4>
+      <p class="mb0" style="font-family:var(--font-mono);font-size:var(--t-xs)">Contrato em vermelho.</p>
+      <p class="small muted" style="margin-top:12px">Não diz o quanto, nem por quê, nem quem resolve. Depois de duas semanas, a cor vermelha vira paisagem.</p>
+    </div>
+    <div class="good">
+      <h4>Adequado</h4>
+      <p class="mb0 small">O contrato DQM24001 apresenta margem prevista de 39%, abaixo do mínimo de 48%. O principal fator é o consumo de horas da CIV, 22% acima do orçado com progresso físico de 52%. Impacto estimado: R$ 378 mil. Responsável: coordenador do contrato. Ação: revisar planejamento e horas restantes até 27/07/2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Classificação por prioridade</h2><span class="rule"></span></div>
+  <div class="table-wrap"><table class="responsive">
+    <caption>A prioridade define o tempo de resposta, não o tom da mensagem.</caption>
+    <thead><tr><th>Nível</th><th>Quando usar</th><th>Resposta esperada</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Nível"><span class="badge badge-blue">Informativo</span></td><td data-l="Quando usar">Variação relevante, ainda dentro do limite.</td><td data-l="Resposta esperada">Acompanhar no próximo ciclo.</td></tr>
+      <tr><td data-l="Nível"><span class="badge badge-amber">Atenção</span></td><td data-l="Quando usar">Indicador próximo do limite ou em tendência ruim.</td><td data-l="Resposta esperada">Analisar e decidir na semana.</td></tr>
+      <tr><td data-l="Nível"><span class="badge badge-red">Alto</span></td><td data-l="Quando usar">Limite ultrapassado com impacto identificado.</td><td data-l="Resposta esperada">Ação programada com prazo definido.</td></tr>
+      <tr><td data-l="Nível"><span class="badge badge-red">Crítico</span></td><td data-l="Quando usar">Impacto contratual ou financeiro em curso.</td><td data-l="Resposta esperada">Ação imediata e comunicação ao gestor.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Central de alertas</h2><span class="rule"></span>
+    <span class="tiny muted">reconheça um alerta e acompanhe a mudança de situação</span>
+  </div>
+  <div class="grid g2" id="al-lista" data-slot="lista-alertas"></div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Plano de ação</h2><span class="rule"></span>
+    <span class="tiny muted">o destino de todo alerta</span>
+  </div>
+  <div data-slot="plano-acao"></div>
+  <p class="small muted" style="margin-top:12px">O sistema deve evitar alertas repetidos, alertas sem responsável e alertas que ninguém pode resolver. Alerta que se repete sem consequência ensina a equipe a ignorá-lo.</p>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>Alerta sem limite documentado é opinião.</li>
+      <li>Alerta sem responsável é ruído.</li>
+      <li>Alerta sem prazo não gera acompanhamento.</li>
+      <li>Prioridade define tempo de resposta.</li>
+      <li>Alerta repetido sem consequência treina a equipe a ignorar a dashboard.</li>
+    </ul>
+  </div>
+</section>

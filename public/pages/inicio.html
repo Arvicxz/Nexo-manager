@@ -1,0 +1,82 @@
+<!--
+  MOD-01 · Início
+  Conteúdo e layout do módulo. Blocos [data-slot] são preenchidos por js/pages/inicio.js.
+-->
+<section class="hero section">
+  <p class="eyebrow">Plataforma didática · dados fictícios de uma empresa de engenharia</p>
+  <h1>Uma dashboard termina em decisão, não em gráfico.</h1>
+  <p class="lead">Aprenda a construir e interpretar dashboards de gestão: indicadores, metas, limites, gráficos, filtros, alertas e forecast — sempre aplicados a contratos, horas, documentos e equipes.</p>
+  <div class="hero-flow">
+    <b>Dado</b><i>→</i><b>Métrica</b><i>→</i><b>Indicador</b><i>→</i><b>Diagnóstico</b><i>→</i><b>Decisão</b><i>→</i><b>Ação</b><i>→</i><b class="end">Acompanhamento</b>
+  </div>
+  <div class="row hero-actions">
+    <a class="btn btn-primary" href="#escolha-trilha">Escolher meu caminho</a>
+    <span data-slot="retomar"></span>
+  </div>
+</section>
+
+<section class="section goal-picker" id="escolha-trilha" aria-labelledby="titulo-trilha">
+  <div class="section-title">
+    <h2 id="titulo-trilha">O que você quer conseguir?</h2><span class="rule"></span>
+    <span class="tiny muted">escolha um objetivo; você pode mudar depois</span>
+  </div>
+  <div class="goal-grid">
+    <button class="goal-option" type="button" data-trilha="conceitos">
+      <span class="goal-kicker">Começar pela base</span><strong>Entender os conceitos</strong>
+      <span>Aprender a ler e explicar os elementos de uma dashboard.</span><small>4 módulos · cerca de 1 hora</small>
+    </button>
+    <button class="goal-option" type="button" data-trilha="construir">
+      <span class="goal-kicker">Aplicar no trabalho</span><strong>Construir dashboards</strong>
+      <span>Definir indicadores, visões, filtros e alertas úteis.</span><small>7 módulos · cerca de 2 horas</small>
+    </button>
+    <button class="goal-option" type="button" data-trilha="decidir">
+      <span class="goal-kicker">Aprimorar a gestão</span><strong>Tomar decisões melhores</strong>
+      <span>Investigar desvios, prever impactos e acompanhar ações.</span><small>5 módulos · cerca de 1h30</small>
+    </button>
+  </div>
+  <div class="goal-feedback" data-trilha-feedback hidden aria-live="polite"></div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Trilha de aprendizagem</h2><span class="rule"></span>
+    <span class="tiny muted">mapa completo, na ordem em que uma análise acontece</span>
+  </div>
+  <div class="trilha">
+    <a href="#/fundamentos"><span class="step-n">ETAPA 01</span><strong>Entender os dados</strong><span class="d">De onde vem cada número e em que ele pode ser confiado.</span></a>
+    <a href="#/indicadores"><span class="step-n">ETAPA 02</span><strong>Criar indicadores</strong><span class="d">Transformar medições em informação com meta e limite.</span></a>
+    <a href="#/graficos"><span class="step-n">ETAPA 03</span><strong>Escolher visualizações</strong><span class="d">Um gráfico para cada pergunta, e nada além disso.</span></a>
+    <a href="#/anatomia"><span class="step-n">ETAPA 04</span><strong>Identificar desvios</strong><span class="d">Comparar com plano, meta, período anterior e carteira.</span></a>
+    <a href="#/filtros"><span class="step-n">ETAPA 05</span><strong>Investigar causas</strong><span class="d">Descer de contrato até documento sem perder o contexto.</span></a>
+    <a href="#/alertas"><span class="step-n">ETAPA 06</span><strong>Tomar decisões</strong><span class="d">Alerta com limite, impacto, responsável, prazo e ação.</span></a>
+    <a href="#/estudos"><span class="step-n">ETAPA 07</span><strong>Acompanhar ações</strong><span class="d">Verificar se a intervenção mudou o indicador.</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Módulos</h2><span class="rule"></span></div>
+  <!-- cartões derivados do registro de módulos (APP.order) -->
+  <div class="grid g3" data-slot="modulos"></div>
+</section>
+
+<section class="section">
+  <div class="grid g2">
+    <section class="card">
+      <div class="card-head"><div><h3>O que esta plataforma responde</h3></div></div>
+      <ul class="small" style="margin:0">
+        <li>O que está acontecendo agora?</li>
+        <li>O resultado está melhorando ou piorando?</li>
+        <li>Onde está o problema e qual é a causa?</li>
+        <li>Qual será o impacto no encerramento?</li>
+        <li>Quem é o responsável e qual é o prazo?</li>
+        <li>O indicador melhorou depois da intervenção?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><div><h3>Sobre os dados</h3></div></div>
+      <p class="small">Todos os clientes, contratos, disciplinas, horas e valores usados aqui são fictícios e foram construídos para reproduzir situações comuns em empresas de engenharia e projetos: carteira de contratos, equipes compartilhadas, apontamento de horas, emissão e revisão de documentos, medição e faturamento.</p>
+      <p class="freshness" data-slot="freshness"></p>
+    </section>
+  </div>
+</section>
