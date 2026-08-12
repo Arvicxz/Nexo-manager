@@ -11,6 +11,12 @@ APP.page('anatomia', {
 
   tags: ['anatomia', 'camadas', 'layout', 'contexto', 'resumo executivo', 'exceções', 'detalhamento', 'faixas'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['shneiderman1996', 'few2013', 'ware2020'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['visualizacao'],
+
   slots: {
     'demo-kpis': function () {
       var d = DATA;

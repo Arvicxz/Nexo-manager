@@ -4,10 +4,15 @@
    Ciclo de vida de uma rota:
      1. resolve o id na URL                      → APP.pages[id]
      2. carrega public/pages/<id>.html           → Templates.load
-     3. monta a moldura: carimbo + template + paginação
+     3. monta a moldura: carimbo + objetivo + template + prática +
+        ferramentas + fontes + paginação
      4. preenche os [data-slot] com dados        → Slots.preencher
      5. entrega o DOM ao módulo                  → pagina.mount(view)
      6. anuncia a troca de rota                  → evento "nexo:rota"
+
+   Ferramentas e fontes vêm depois da prática de propósito: o aluno
+   primeiro aprende e aplica, e só então vê com o que implementar e de
+   onde o conceito veio. Ambos os blocos nascem recolhidos.
 
    Carregamentos são assíncronos: um token de sequência descarta a
    resposta de uma navegação que já foi superada por outra.
@@ -92,7 +97,8 @@ window.Router = (function () {
         clearTimeout(aviso);
         if (token !== sequencia) return;             /* rota superada */
 
-        view.innerHTML = UI.carimbo(pagina) + UI.aprendizado(pagina) + html + UI.pratica(pagina) + UI.pager(id);
+        view.innerHTML = UI.carimbo(pagina) + UI.aprendizado(pagina) + html +
+                         UI.pratica(pagina) + UI.ferramentas(pagina) + UI.fontes(pagina) + UI.pager(id);
         Slots.preencher(view, pagina);
         if (typeof pagina.mount === 'function') pagina.mount(view);
         if (window.Aprendizado) Aprendizado.mount(pagina, view);

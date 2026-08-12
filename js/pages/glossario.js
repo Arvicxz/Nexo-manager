@@ -11,6 +11,12 @@ APP.page('glossario', {
 
   tags: ['glossário', 'definições', 'termos', 'vocabulário'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['dama2017', 'kimball2013', 'iso22400'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['catalogo'],
+
   /* Busca incremental: filtra os cartões já presentes no template. */
   mount: function (raiz) {
     var cartoes = Array.prototype.slice.call(raiz.querySelectorAll('#gl-lista > .card'));

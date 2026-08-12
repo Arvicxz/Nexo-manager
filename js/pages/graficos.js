@@ -13,6 +13,12 @@ APP.page('graficos', {
          'heatmap', 'mapa de calor', 'dispersão', 'scatter', 'bolhas', 'funil', 'gantt', 'bullet chart', 'gauge',
          'velocímetro', 'pizza', 'rosca', 'radar', 'comparador de gráficos'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['cleveland1984', 'few2013', 'munzner2014', 'tufte2001', 'anscombe1973'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['visualizacao', 'bibliotecas'],
+
   slots: {
     'g-linha': function () {
       return CH.line({ labels: DATA.meses, h: 180, fmt: CH.fmt.pct, min: 40, max: 52, target: 48,

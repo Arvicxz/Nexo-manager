@@ -12,6 +12,12 @@ APP.page('estudos', {
 
   tags: ['estudo de caso', 'investigação', 'análise', 'cpl24001', 'plano de ação', 'causa raiz', 'drill-down'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['simpson1951', 'anscombe1973', 'wheeler2000', 'pmi2019'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['estatistica'],
+
   slots: {
     'passo-margem': function () {
       return CH.line({ labels: DATA.meses, h: 200, fmt: CH.fmt.pct, min: 40, max: 52, target: 48,

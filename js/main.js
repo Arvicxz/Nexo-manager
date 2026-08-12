@@ -6,6 +6,10 @@
 /* dados fictícios */
 import './data/data.js';
 
+/* catálogos de apoio: de onde vem o conceito, com o que se implementa */
+import './data/fontes.js';
+import './data/ferramentas.js';
+
 /* biblioteca de componentes */
 import './ui/charts.js';
 import './ui/ui.js';
@@ -30,6 +34,8 @@ import './pages/perfis.js';
 import './pages/estudos.js';
 import './pages/praticas.js';
 import './pages/glossario.js';
+import './pages/ferramentas.js';
+import './pages/fontes.js';
 
 /* camada didática — trilhas, competências, prática e leitura focada */
 import './core/aprendizado.js';

@@ -12,6 +12,12 @@ APP.page('filtros', {
   tags: ['filtro global', 'filtro local', 'drill-down', 'drill-through', 'cross-filter', 'tooltip',
          'breadcrumb', 'histórico de filtros', 'navegação'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['shneiderman1996', 'kimball2013', 'simpson1951'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['visualizacao', 'armazenamento'],
+
   /* Horas por disciplina, por contrato (fictício) — usado só nesta demonstração. */
   horasPorContrato: {
     DQM24001: [2260, 1490, 980, 840, 1130], RFN22001: [820, 640, 510, 470, 600],

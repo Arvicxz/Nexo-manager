@@ -10,5 +10,11 @@ APP.page('fundamentos', {
   },
 
   tags: ['dado', 'métrica', 'indicador', 'kpi', 'índice', 'meta', 'limite', 'parâmetro',
-         'dimensão', 'benchmark', 'forecast', 'alerta', 'origem dos dados', 'sgd', 'rat']
+         'dimensão', 'benchmark', 'forecast', 'alerta', 'origem dos dados', 'sgd', 'rat'],
+
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['kaplan1992', 'kimball2013', 'wheeler2000', 'strathern1997', 'crispdm2000'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['origem', 'ingestao', 'semantica', 'qualidade']
 });

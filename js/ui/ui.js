@@ -101,6 +101,100 @@ window.UI = (function () {
     '</section>';
   };
 
+  /* ------------------------------------------------------------------
+     Fontes do módulo: de onde vem o que ele afirma.
+
+     Fica recolhido por padrão para não competir com o conteúdo, mas o
+     resumo já mostra quantas obras sustentam o módulo — o aluno vê que
+     existe origem sem precisar abrir.
+     ------------------------------------------------------------------ */
+  U.fontes = function (pagina) {
+    if (!window.FONTES) return '';
+    var obras = FONTES.de(pagina);
+    if (!obras.length) return '';
+
+    var TIPOS = { artigo: 'Artigo', livro: 'Livro', norma: 'Norma', 'padrão': 'Padrão', guia: 'Guia' };
+
+    var lista = obras.map(function (o) {
+      return '<li class="fonte-item">' +
+        '<p class="fonte-ref">' +
+          '<strong>' + esc(o.autores) + '</strong> (' + esc(o.ano) + '). ' +
+          '<em>' + esc(o.titulo) + '</em>. ' + esc(o.veiculo) + '.' +
+        '</p>' +
+        '<p class="fonte-sustenta"><span>Sustenta</span>' + esc(o.sustenta) + '</p>' +
+        '<p class="fonte-meta">' +
+          '<span class="badge badge-gray badge-plain">' + esc(TIPOS[o.tipo] || o.tipo) + '</span>' +
+          (o.acesso === 'aberto' ? '<span class="badge badge-green badge-plain">Acesso aberto</span>' : '') +
+          (o.conferido ? '' : '<span class="badge badge-amber badge-plain">Conferência pendente</span>') +
+          (o.url ? '<a href="' + esc(o.url) + '" target="_blank" rel="noopener">Abrir a fonte ↗</a>' : '') +
+        '</p>' +
+      '</li>';
+    }).join('');
+
+    return '<section class="section fontes-bloco">' +
+      '<details class="acc acc-fontes">' +
+        '<summary>Fontes deste módulo ' +
+          '<span class="tiny muted">' + obras.length + (obras.length === 1 ? ' obra' : ' obras') + '</span>' +
+        '</summary>' +
+        '<div class="acc-body">' +
+          '<p class="small muted" style="margin:0 0 12px">Cada obra abaixo sustenta uma afirmação específica deste módulo. ' +
+            'Limiares e metas numéricas <strong>não</strong> vêm daqui: são convenções desta empresa fictícia e estão marcadas como tal ao longo do texto.</p>' +
+          '<ul class="fonte-lista">' + lista + '</ul>' +
+          '<p class="tiny muted" style="margin:14px 0 0">Lista completa e critérios de verificação em ' +
+            '<a href="#/fontes">MOD-14 · Fontes e verificação</a>.</p>' +
+        '</div>' +
+      '</details>' +
+    '</section>';
+  };
+
+  /* ------------------------------------------------------------------
+     Ferramentas do módulo: com o que se implementa o que ele ensina.
+     Também recolhido — é complemento prático, não conteúdo do módulo.
+     ------------------------------------------------------------------ */
+  U.ferramentas = function (pagina) {
+    if (!window.FERRAMENTAS) return '';
+    var camadas = FERRAMENTAS.de(pagina);
+    if (!camadas.length) return '';
+
+    var blocos = camadas.map(function (c) {
+      var itens = c.itens.map(function (f) {
+        return '<li>' +
+          '<strong>' + esc(f.nome) + '</strong>' +
+          '<span class="ferr-lic ' + esc(f.licenca) + '">' + esc(FERRAMENTAS.licencas[f.licenca] || f.licenca) + '</span>' +
+          '<span class="ferr-o">' + esc(f.o) + '</span>' +
+        '</li>';
+      }).join('');
+
+      return '<div class="ferr-camada">' +
+        '<p class="eyebrow">' + esc(c.nome) + '</p>' +
+        '<p class="small">' + esc(c.conceito) + '</p>' +
+        '<ul class="ferr-lista">' + itens + '</ul>' +
+      '</div>';
+    }).join('');
+
+    return '<section class="section ferramentas-bloco">' +
+      '<details class="acc acc-ferramentas">' +
+        '<summary>Como fazer isso na prática ' +
+          '<span class="tiny muted">ferramentas de mercado</span>' +
+        '</summary>' +
+        '<div class="acc-body">' +
+          '<p class="small muted" style="margin:0 0 12px">Sem ranking: estas são ferramentas que resolvem o que este módulo ensina. ' +
+            'A escolha depende do porte, do orçamento e do que já existe na sua empresa.</p>' +
+          blocos +
+          '<p class="tiny muted" style="margin:14px 0 0">Catálogo completo, por camada, em ' +
+            '<a href="#/ferramentas">MOD-13 · Ferramentas</a>.</p>' +
+        '</div>' +
+      '</details>' +
+    '</section>';
+  };
+
+  /* Marca de parâmetro arbitrário. Todo número que é escolha da empresa,
+     e não regra de mercado, passa por aqui — em JS ou pela classe
+     .convencao no HTML editorial. */
+  U.convencao = function (texto) {
+    return '<p class="convencao"><b>Convenção da casa:</b> ' + texto + '</p>';
+  };
+
   U.sec = function (titulo, extra) {
     return '<div class="section-title"><h2>' + esc(titulo) + '</h2><span class="rule"></span>' +
            (extra ? '<span class="tiny muted">' + extra + '</span>' : '') + '</div>';

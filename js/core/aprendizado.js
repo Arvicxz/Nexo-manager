@@ -201,6 +201,38 @@ window.Aprendizado = (function () {
         erro: 'Priorize utilidade decisória: o que importa, por que importa e quem age.'
       }
     },
+    ferramentas: {
+      objetivo: 'Identificar em qual camada está o seu problema antes de escolher a ferramenta.',
+      competencia: 'decisao',
+      foco: false,
+      conceitos: ['indicador', 'granularidade', 'filtro', 'alerta'],
+      pratica: {
+        cenario: 'O número da margem apresentado pelo financeiro não bate com o da diretoria. Cada área extrai de um relatório diferente.',
+        pergunta: 'Em qual camada está o problema?',
+        opcoes: ['Visualização: falta padronizar a ferramenta de dashboard',
+                 'Camada semântica: a fórmula não está definida em um lugar só',
+                 'Origem: os sistemas registram valores diferentes'],
+        correta: 1,
+        acerto: 'Exato. Divergência de número entre áreas quase sempre é fórmula duplicada, não ferramenta errada. Trocar o dashboard não resolveria.',
+        erro: 'Pense onde a fórmula do indicador é escrita. Se ela existe em dois lugares, os dois vão divergir mais cedo ou mais tarde.'
+      }
+    },
+    fontes: {
+      objetivo: 'Separar o que vem da literatura do que é convenção da sua empresa.',
+      competencia: 'fundamentos',
+      foco: false,
+      conceitos: ['indicador', 'meta', 'limite', 'benchmark'],
+      pratica: {
+        cenario: 'Um colega afirma em reunião: “o padrão de mercado é margem mínima de 48%, e barras comparam melhor que pizza”.',
+        pergunta: 'Como tratar as duas afirmações?',
+        opcoes: ['As duas são padrão de mercado e podem ser citadas assim',
+                 'A comparação por barras tem base experimental; os 48% são convenção e precisam ser declarados como tal',
+                 'As duas são opinião e não sustentam decisão'],
+        correta: 1,
+        acerto: 'Correto. Uma tem autor e experimento; a outra é decisão de gestão. Misturar as duas faz a reunião discutir o número em vez do contrato.',
+        erro: 'Repare que as duas afirmações têm naturezas diferentes: uma pode ser conferida em uma obra, a outra é uma escolha da empresa.'
+      }
+    },
     glossario: {
       objetivo: 'Usar o vocabulário de dashboards com precisão em reuniões e especificações.',
       competencia: 'fundamentos',

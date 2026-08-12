@@ -1,0 +1,81 @@
+<!--
+  MOD-13 · Ferramentas
+  A prosa e as regras editoriais ficam aqui. O catálogo em si vem de
+  js/data/ferramentas.js pelo slot [data-slot="catalogo"], porque a
+  mesma lista alimenta o bloco "Como fazer isso na prática" de cada módulo.
+-->
+<section class="section">
+  <div class="section-title"><h2>O mesmo caminho do dado, agora com nomes</h2><span class="rule"></span></div>
+
+  <div class="grid g-2-1">
+    <section class="card">
+      <p class="small">No MOD-02 você percorreu o caminho que um dado faz até virar decisão: origem, tratamento, modelo único, cálculo, tela, ação. Esta página é aquele mesmo caminho, com os produtos que ocupam cada etapa no mercado.</p>
+      <p class="small">A organização é proposital. Uma lista de ferramentas em ordem alfabética não ensina nada — parece catálogo de fornecedor. Organizada por camada, ela responde à pergunta que interessa: <strong>“para o problema que eu tenho agora, que tipo de ferramenta eu procuro?”</strong></p>
+      <p class="small">Comece pela camada onde está o seu problema. Se o número do financeiro não bate com o da diretoria, o problema é de <em>camada semântica</em> — e nenhuma troca de ferramenta de dashboard vai resolver.</p>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><div><h3>Três regras desta lista</h3><p>para ela não virar propaganda</p></div></div>
+      <ul class="small mb0">
+        <li><strong>Sem ranking.</strong> Nunca “a melhor ferramenta”. Sempre “as que resolvem este problema”. A escolha certa depende do seu porte, do seu orçamento e do que já existe na sua empresa.</li>
+        <li><strong>Sem preço e sem número de versão.</strong> Os dois desatualizam sozinhos e são a maior fonte de erro num catálogo. A categoria de licença é estável e é o que muda a decisão.</li>
+        <li><strong>Sempre uma opção aberta.</strong> Toda camada tem ao menos uma alternativa de código aberto, para que esta trilha continue aplicável a quem não tem orçamento.</li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Catálogo por camada</h2><span class="rule"></span>
+    <span class="tiny muted" id="cat-cont" aria-live="polite"></span>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <div class="filtro-linha">
+      <span class="eyebrow">Onde você está</span>
+      <button class="chip-filtro" type="button" data-porte="" aria-pressed="true">Tudo</button>
+      <button class="chip-filtro" type="button" data-porte="planilha" aria-pressed="false">Dá para começar hoje</button>
+      <button class="chip-filtro" type="button" data-porte="time" aria-pressed="false">Uma equipe ou área</button>
+      <button class="chip-filtro" type="button" data-porte="corp" aria-pressed="false">Corporativo</button>
+    </div>
+    <div class="filtro-linha">
+      <span class="eyebrow">Licença</span>
+      <button class="chip-filtro" type="button" data-licenca="" aria-pressed="true">Tudo</button>
+      <button class="chip-filtro" type="button" data-licenca="aberto" aria-pressed="false">Código aberto</button>
+      <button class="chip-filtro" type="button" data-licenca="freemium" aria-pressed="false">Camada gratuita</button>
+      <button class="chip-filtro" type="button" data-licenca="pago" aria-pressed="false">Pago</button>
+    </div>
+    <p class="tiny muted" style="margin:14px 0 0">Os filtros escondem ferramentas, nunca camadas: uma camada sem nenhuma opção compatível continua visível, porque saber que ela existe também é informação.</p>
+  </div>
+
+  <div data-slot="catalogo"></div>
+  <p class="catalogo-vazio" id="cat-vazio" hidden>Nenhuma ferramenta combina com esses dois filtros. Afrouxe um deles.</p>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Por onde começar, se você começa do zero</h2><span class="rule"></span></div>
+  <div class="card">
+    <ol class="fluxo">
+      <li><strong>Resolva a fórmula antes da ferramenta</strong><span>Escreva a definição de cada indicador — nome, fórmula, unidade, meta, dono. Isso é papel e conversa, não software. Pular esta etapa é a razão mais comum de um projeto de BI não pegar.</span></li>
+      <li><strong>Comece na planilha que já existe</strong><span>Power Query e Power Pivot resolvem muito mais do que parece. Se o problema couber aí, ele não justifica projeto de infraestrutura.</span></li>
+      <li><strong>Só então escolha o repositório</strong><span>Quando a planilha começar a travar, quebrar ou divergir entre pessoas, é hora de um banco. PostgreSQL ou DuckDB atendem à maioria das empresas de porte médio.</span></li>
+      <li><strong>Versione as transformações</strong><span>dbt torna a fórmula rastreável: quem mudou, quando e por quê. É o momento em que “a fórmula é da empresa” deixa de ser discurso.</span></li>
+      <li><strong>Escolha a ferramenta de tela por último</strong><span>É a decisão mais visível e a menos determinante. Com o modelo certo por trás, quase todas funcionam; com o modelo errado, nenhuma salva.</span></li>
+    </ol>
+    <p class="erro-comum"><b>Erro comum:</b> Comprar a ferramenta de dashboard primeiro e descobrir depois que o problema era a definição do indicador. A ferramenta fica, o problema também.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>Procure a ferramenta pela camada do seu problema, não pelo nome mais conhecido.</li>
+      <li>Divergência de número entre áreas é problema de camada semântica, não de dashboard.</li>
+      <li>Toda camada tem alternativa aberta: falta de orçamento não é impedimento.</li>
+      <li>A definição do indicador vem antes da compra — sempre.</li>
+      <li>A ferramenta de tela é a escolha mais visível e a menos determinante.</li>
+    </ul>
+  </div>
+</section>

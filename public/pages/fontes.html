@@ -1,0 +1,107 @@
+<!--
+  MOD-14 · Fontes e verificação
+  A prosa sobre método fica aqui. A bibliografia vem de js/data/fontes.js
+  pelo slot [data-slot="bibliografia"], porque a mesma lista alimenta o
+  bloco "Fontes deste módulo" de cada página.
+-->
+<section class="section">
+  <div class="section-title"><h2>Como este conteúdo foi verificado</h2><span class="rule"></span></div>
+
+  <div class="grid g-2-1">
+    <section class="card">
+      <p class="small">Este material foi escrito com apoio de inteligência artificial. Isso traz um risco específico e conhecido: o texto sai fluente, bem estruturado e ocasionalmente errado — e a fluência esconde o erro. A resposta não é confiar; é <strong>tornar cada afirmação conferível</strong>.</p>
+      <p class="small">O caminho adotado tem duas partes. A primeira é separar afirmação de opinião de afirmação de fato, porque elas se verificam de maneiras diferentes. A segunda é travar a aritmética: nenhum número exibido pela plataforma é digitado duas vezes.</p>
+      <p class="small">Este módulo existe para que você possa discordar com base. Se uma afirmação da trilha estiver mal sustentada, a fonte que a sustenta está listada e você pode ir conferir.</p>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><div><h3>Números derivados</h3><p>a trava contra incoerência</p></div></div>
+      <p class="small">Margem, cascata, rosca e percentuais não são digitados: saem de uma única conta em <code>js/data/data.js</code>. Se alguém mudar um custo, todos os números e todos os gráficos mudam juntos.</p>
+      <div class="formula"><span class="formula-label">Uma fórmula, um resultado</span>Margem bruta = (Receita − MOD − CPE) ÷ Receita
+Cascata, rosca e cartão leem essa mesma conta.</div>
+      <p class="small mb0">O arquivo <code>tests/coerencia.js</code> recalcula essas contas e falha se o texto discordar dos dados. Roda com <code>npm run verificar</code>.</p>
+    </section>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Três tipos de afirmação, três formas de verificar</h2><span class="rule"></span></div>
+  <div class="table-wrap">
+    <table class="responsive">
+      <caption>Tratar tudo como “fato a checar” desperdiça esforço; tratar tudo como opinião não sustenta nada.</caption>
+      <thead>
+        <tr><th>Tipo</th><th>Exemplo na plataforma</th><th>Como se verifica</th><th>Onde aparece</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-l="Tipo"><strong>Consenso da literatura</strong></td>
+          <td data-l="Exemplo">“Barras comparam melhor que ângulos.”</td>
+          <td data-l="Como se verifica">Confrontando com a obra. Tem autor, ano e experimento.</td>
+          <td data-l="Onde aparece">Bloco <strong>Fontes deste módulo</strong>, no fim de cada página.</td>
+        </tr>
+        <tr>
+          <td data-l="Tipo"><strong>Requisito de norma</strong></td>
+          <td data-l="Exemplo">“Contraste mínimo de 4,5:1.”</td>
+          <td data-l="Como se verifica">Pelo número do critério. Não é preferência de quem projetou.</td>
+          <td data-l="Onde aparece">Citado com o critério no próprio texto, como no MOD-11.</td>
+        </tr>
+        <tr>
+          <td data-l="Tipo"><strong>Convenção da casa</strong></td>
+          <td data-l="Exemplo">“Margem mínima de 48%.”</td>
+          <td data-l="Como se verifica">Não se verifica: se declara. É decisão de gestão, não fato do mundo.</td>
+          <td data-l="Onde aparece">Marcado no texto com <span class="badge badge-gray badge-plain">Convenção da casa</span>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="convencao" style="max-width:none"><b>Convenção da casa:</b> É assim que a marca aparece ao longo da trilha. Toda vez que você a encontrar, o número ao lado é escolha desta empresa fictícia — troque pelo seu.</p>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Bibliografia</h2><span class="rule"></span>
+    <span class="tiny muted" id="fn-cont" aria-live="polite"></span>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <label class="fld" style="max-width:420px">Buscar obra, autor ou conceito
+      <input type="search" id="fn-busca" placeholder="Cleveland, forecast, acessibilidade…"
+             style="padding:8px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);font-size:var(--t-sm)">
+    </label>
+    <p class="tiny muted" style="margin:10px 0 0">Cada obra traz o campo <strong>Sustenta</strong>: qual afirmação da plataforma depende dela. Sem esse campo a bibliografia seria enfeite — não daria para conferir se a citação cobre o que está escrito.</p>
+  </div>
+
+  <div data-slot="bibliografia"></div>
+  <p class="catalogo-vazio" id="fn-vazio" hidden>Nenhuma obra encontrada. Tente o sobrenome do autor ou o tema.</p>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>Limites desta verificação</h2><span class="rule"></span></div>
+  <div class="grid g3">
+    <article class="card">
+      <h3>Conferência pendente</h3>
+      <p class="small mb0">As obras marcadas <span class="badge badge-amber badge-plain">Conferência pendente</span> ainda não foram checadas contra a edição física ou o DOI. Preferimos exibir a pendência a passar por verificado o que não foi.</p>
+    </article>
+    <article class="card">
+      <h3>Página e edição</h3>
+      <p class="small mb0">As referências trazem obra e veículo, não página específica. Para citar em documento formal, confirme a paginação na edição que você tiver em mãos — numeração muda entre edições.</p>
+    </article>
+    <article class="card">
+      <h3>O que não tem fonte</h3>
+      <p class="small mb0">Boa parte do conteúdo é prática de gestão consolidada, sem obra única que a sustente. Nesses casos não há citação — e forçar uma seria criar autoridade falsa, exatamente o risco que este módulo existe para reduzir.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="resumo">
+    <div class="section-title"><h2>Resumo do módulo</h2><span class="rule"></span></div>
+    <ul>
+      <li>Consenso, norma e convenção se verificam de formas diferentes — não misture os três.</li>
+      <li>Número derivado nunca é digitado duas vezes: incoerência vira erro de teste, não descoberta em reunião.</li>
+      <li>Referência sem o campo “sustenta” é enfeite: não dá para conferir o que ela cobre.</li>
+      <li>Admitir a conferência pendente vale mais que exibir uma citação não verificada.</li>
+      <li>Onde não há fonte, o correto é não citar nada.</li>
+    </ul>
+  </div>
+</section>

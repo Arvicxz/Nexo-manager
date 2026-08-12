@@ -300,3 +300,66 @@ input[type="range"]{width:100%;accent-color:var(--c-blue)}
 .demo-layer{border-radius:var(--r-md);transition:box-shadow .18s,outline-color .18s;outline:2px solid transparent;outline-offset:6px}
 .demo-layer.hl{outline-color:var(--c-blue)}
 .demo-layer.hl::after{content:""}
+
+/* ---------------- Convenção da casa ----------------
+   Marca de parâmetro arbitrário: número que é escolha desta empresa
+   fictícia, e não regra de mercado. Fica visualmente mais discreto que
+   .erro-comum de propósito — informa a origem, não adverte. */
+.convencao{
+  background:var(--surface-2);border:1px dashed var(--line-strong);border-radius:var(--r-sm);
+  padding:10px var(--s3);font-size:var(--t-xs);color:var(--ink-2);margin:var(--s3) 0 0;
+}
+.convencao b{color:var(--ink);font-family:var(--font-mono);font-size:var(--t-tiny);
+  text-transform:uppercase;letter-spacing:.06em;margin-right:6px}
+
+/* ---------------- Fontes e ferramentas do módulo ----------------
+   Ambos nascem recolhidos: complementam o módulo, não competem com ele. */
+.fontes-bloco,.ferramentas-bloco{margin-top:var(--s5)}
+.acc-fontes{border-left:3px solid var(--c-purple)}
+.acc-ferramentas{border-left:3px solid var(--c-blue)}
+.acc-fontes > summary,.acc-ferramentas > summary{gap:var(--s2);justify-content:flex-start}
+.acc-fontes > summary::after,.acc-ferramentas > summary::after{margin-left:auto}
+.acc-fontes > summary .tiny,.acc-ferramentas > summary .tiny{font-family:var(--font-mono);font-weight:400}
+
+.fonte-lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s4)}
+.fonte-item{border-left:2px solid var(--line);padding-left:var(--s4)}
+.fonte-ref{margin:0;font-size:var(--t-sm);color:var(--ink-2);line-height:1.6}
+.fonte-ref strong{color:var(--ink)}
+.fonte-ref em{color:var(--ink);font-style:italic}
+.fonte-sustenta{margin:6px 0 0;font-size:var(--t-xs);color:var(--ink-3);line-height:1.6}
+.fonte-sustenta span{
+  display:inline-block;font-family:var(--font-mono);font-size:var(--t-tiny);text-transform:uppercase;
+  letter-spacing:.08em;color:var(--c-purple);margin-right:8px;
+}
+.fonte-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px var(--s3);margin:8px 0 0}
+.fonte-meta a{font-size:var(--t-tiny);font-family:var(--font-mono)}
+
+.ferr-camada{margin-bottom:var(--s5)}
+.ferr-camada:last-of-type{margin-bottom:0}
+.ferr-camada .eyebrow{color:var(--c-blue);margin:0 0 4px}
+.ferr-camada > .small{margin:0 0 var(--s3);color:var(--ink-2);max-width:78ch}
+.ferr-lista{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2);
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.ferr-lista li{
+  background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:10px var(--s3);display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;
+}
+.ferr-lista strong{font-size:var(--t-sm);color:var(--ink)}
+.ferr-o{flex:1 1 100%;font-size:var(--t-xs);color:var(--ink-3);line-height:1.55}
+.ferr-lic{
+  font-family:var(--font-mono);font-size:var(--t-tiny);border-radius:var(--r-sm);
+  padding:1px 6px;border:1px solid var(--line-strong);color:var(--ink-3);white-space:nowrap;
+}
+.ferr-lic.aberto{color:var(--c-green);border-color:#BFE3D2;background:var(--bg-green)}
+.ferr-lic.freemium{color:var(--c-blue);border-color:#CBD9FA;background:var(--bg-blue)}
+
+/* ---------------- Painéis de catálogo (MOD-13 e MOD-14) ---------------- */
+.filtro-linha{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2);margin-top:var(--s3)}
+.filtro-linha .eyebrow{margin:0 var(--s2) 0 0}
+.chip-filtro{
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:999px;padding:4px 12px;font-size:var(--t-tiny);cursor:pointer;
+}
+.chip-filtro:hover{border-color:var(--c-blue);color:var(--c-blue)}
+.chip-filtro[aria-pressed="true"]{background:var(--bg-blue);border-color:var(--c-blue);color:var(--c-blue);font-weight:600}
+.catalogo-vazio{padding:var(--s5);text-align:center;color:var(--ink-3);font-size:var(--t-sm)}

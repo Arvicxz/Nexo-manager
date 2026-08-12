@@ -11,6 +11,12 @@ APP.page('alertas', {
 
   tags: ['alerta', 'exceção', 'limite', 'responsável', 'prazo', 'plano de ação', 'prioridade', 'semáforo', 'decisão'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['wheeler2000', 'kaplan1992'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['alertas'],
+
   slots: {
     'lista-alertas': function () {
       return DATA.alertas.map(function (a, i) {

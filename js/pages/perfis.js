@@ -12,6 +12,12 @@ APP.page('perfis', {
   tags: ['diretoria', 'gerente de engenharia', 'coordenador', 'líder de disciplina', 'financeiro',
          'comercial', 'colaborador', 'cliente', 'perfis', 'permissões'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['kimball2013', 'dama2017', 'nielsen1994'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['visualizacao', 'catalogo'],
+
   /* Os oito painéis já existem no template: alternar é só mostrar um deles. */
   mount: function (raiz) {
     UI.ligarTabs(raiz, {

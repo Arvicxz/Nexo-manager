@@ -12,6 +12,12 @@ APP.page('planejamento', {
   tags: ['planejado', 'realizado', 'forecast', 'previsão', 'margem prevista', 'custo final',
          'data de conclusão', 'risco', 'caixa projetado'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['hyndman2021', 'pmi2019'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['previsao', 'projetos'],
+
   /* Premissas do cenário simulado (contrato DQM24001). */
   base: { receita: 4200, incorrido: 2148, horasFeitas: 6700, prazoMeses: 5, jornada: 176 },
 

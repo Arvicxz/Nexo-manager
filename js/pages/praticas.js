@@ -12,6 +12,12 @@ APP.page('praticas', {
   tags: ['boas práticas', 'hierarquia', 'consistência', 'cores', 'semáforo', 'legibilidade', 'contexto',
          'acessibilidade', 'responsividade', 'erros comuns', 'atualização'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['tufte2001', 'wainer1984', 'cairo2019', 'cleveland1984', 'wcag22', 'ibcs', 'nielsen1994'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['projeto-visual', 'orquestracao'],
+
   slots: {
     'pizza-ruim': function () {
       return CH.donut({ w: 190,

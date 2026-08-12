@@ -16,6 +16,12 @@ APP.page('indicadores', {
          'capacidade mix', 'cumprimento de apontamento', 'produtividade', 'sla', 'satisfação do cliente',
          'taxa de aceite', 'alterações de escopo'],
 
+  /* Obras que sustentam o que este módulo afirma — ver js/data/fontes.js */
+  fontes: ['kaplan1992', 'pmi2019', 'iso22400', 'strathern1997'],
+
+  /* Camadas do catálogo de ferramentas — ver js/data/ferramentas.js */
+  ferramentas: ['semantica', 'projetos', 'estatistica'],
+
   slots: {
     /* ------------------------------------------------ financeiros */
     'ind-receita': function () {
