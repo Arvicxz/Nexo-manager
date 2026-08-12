@@ -129,16 +129,25 @@ Progresso físico:            50%</div>
   <div class="grid g2">
 
     <section class="card">
-      <div class="card-head"><div><h3>Acessibilidade</h3><p>requisitos mínimos, não opcionais</p></div></div>
-      <ul class="small mb0">
-        <li>Contraste adequado entre texto e fundo.</li>
-        <li>Navegação completa por teclado, com foco visível.</li>
-        <li>Status nunca dependente apenas de cor — sempre com texto.</li>
-        <li>Ícones acompanhados de rótulo.</li>
-        <li>Textos alternativos em gráficos e imagens.</li>
-        <li>Área clicável confortável em telas de toque.</li>
-        <li>Movimento reduzido respeitado para quem configurou isso no sistema.</li>
-      </ul>
+      <div class="card-head"><div><h3>Acessibilidade</h3><p>requisitos com número, não recomendações</p></div></div>
+      <p class="small">Cada item abaixo é um critério da WCAG 2.2, a norma do W3C para conteúdo web. Isso muda a conversa: em vez de discutir se o cinza está claro demais, você mede 4,5:1 e o assunto acaba.</p>
+      <div class="table-wrap" style="margin-top:12px">
+        <table class="responsive">
+          <caption>Os sete pontos, com o critério correspondente. Todos verificáveis por ferramenta.</caption>
+          <thead><tr><th>O que garantir</th><th>Critério</th><th>Nível</th></tr></thead>
+          <tbody>
+            <tr><td data-l="O que garantir">Contraste de texto e fundo de pelo menos 4,5:1 (3:1 em texto grande)</td><td data-l="Critério">1.4.3 Contraste mínimo</td><td data-l="Nível">AA</td></tr>
+            <tr><td data-l="O que garantir">Contraste de 3:1 em bordas de campo, ícones e elementos de gráfico</td><td data-l="Critério">1.4.11 Contraste não textual</td><td data-l="Nível">AA</td></tr>
+            <tr><td data-l="O que garantir">Status nunca só por cor — o semáforo sempre acompanhado de texto</td><td data-l="Critério">1.4.1 Uso de cor</td><td data-l="Nível">A</td></tr>
+            <tr><td data-l="O que garantir">Toda a navegação possível pelo teclado, sem armadilhas de foco</td><td data-l="Critério">2.1.1 Teclado</td><td data-l="Nível">A</td></tr>
+            <tr><td data-l="O que garantir">Foco sempre visível ao navegar por Tab</td><td data-l="Critério">2.4.7 Foco visível</td><td data-l="Nível">AA</td></tr>
+            <tr><td data-l="O que garantir">Alternativa em texto para gráficos, ícones e imagens</td><td data-l="Critério">1.1.1 Conteúdo não textual</td><td data-l="Nível">A</td></tr>
+            <tr><td data-l="O que garantir">Área clicável de no mínimo 24 × 24 px</td><td data-l="Critério">2.5.8 Tamanho do alvo</td><td data-l="Nível">AA</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:12px">Respeitar <code>prefers-reduced-motion</code> é o critério 2.3.3, de nível AAA — não é exigido para conformidade AA, mas custa pouco e evita mal-estar em quem tem sensibilidade a movimento.</p>
+      <p class="small"><strong>Como conferir:</strong> as extensões axe DevTools e WAVE rodam essa lista automaticamente no navegador e apontam o critério violado. Veja em “Como fazer isso na prática”, no fim deste módulo.</p>
     </section>
 
     <section class="card">
@@ -163,6 +172,7 @@ Progresso físico:            50%</div>
       <li>Cor é linguagem: use vermelho só quando houver ação a tomar.</li>
       <li>Semáforo sempre acompanhado de texto.</li>
       <li>Declarar a data de atualização e os dados incompletos é parte da informação.</li>
+      <li>Acessibilidade tem número de critério: pare de discutir opinião e meça.</li>
     </ul>
   </div>
 </section>
