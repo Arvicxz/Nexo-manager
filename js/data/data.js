@@ -2,21 +2,41 @@
    data.js — Todos os dados abaixo são FICTÍCIOS e servem apenas para
    demonstração didática. Empresa de engenharia com carteira de
    contratos, disciplinas técnicas e equipes compartilhadas.
+
+   REGRA DA CASA: nenhum valor derivado é digitado à mão.
+   Margem, cascata e percentuais saem de uma única conta, aqui.
+   É o mesmo princípio que o MOD-02 ensina — "a fórmula é da empresa,
+   não da tela" — aplicado ao próprio material didático.
+   O arquivo tests/coerencia.js verifica essas contas a cada mudança.
    ===================================================================== */
 window.DATA = (function () {
 
   var meses = ['Jan/26','Fev/26','Mar/26','Abr/26','Mai/26','Jun/26','Jul/26'];
 
+  /* --------- Financeiro consolidado (R$ mil) --------- */
+  /* Custos DIRETOS: consumidos pela execução do contrato. */
+  var receita   = [1180, 1240, 1310, 1275, 1360, 1405, 1290];
+  var custoMOD  = [ 520,  548,  590,  600,  641,  678,  651];  /* mão de obra direta */
+  var custoCPE  = [ 100,   99,  106,   94,  110,  107,   84];  /* terceiros, fornecedores e despesas externas */
+  /* Despesa INDIRETA: administrativa, não entra na margem bruta. */
+  var despesas  = [  76,   79,   84,   82,   88,   91,   87];
+
+  var ultimo = receita.length - 1;
+
+  /* Margem bruta = (Receita − Custos diretos) ÷ Receita.
+     Uma fórmula, um resultado: o cartão, o gráfico e a cascata leem daqui. */
+  function margemValor(i) { return receita[i] - custoMOD[i] - custoCPE[i]; }
+  function margemPercentual(i) { return +(margemValor(i) / receita[i] * 100).toFixed(1); }
+
   return {
     atualizacao: '24/07/2026 às 09:15',
     meses: meses,
 
-    /* --------- Financeiro consolidado (R$ mil) --------- */
-    receita:      [1180, 1240, 1310, 1275, 1360, 1405, 1290],
-    custoMOD:     [ 520,  548,  590,  600,  641,  678,  651],
-    custoCPE:     [ 118,  126,  132,  140,  152,  161,  158],
-    despesas:     [  76,   79,   84,   82,   88,   91,   87],
-    margemPct:    [47.5, 47.8, 46.9, 45.6, 44.8, 44.1, 43.0],
+    receita:      receita,
+    custoMOD:     custoMOD,
+    custoCPE:     custoCPE,
+    despesas:     despesas,
+    margemPct:    receita.map(function (_, i) { return margemPercentual(i); }),
     metaMargem:   48,
     faturado:     [1120, 1190, 1260, 1240, 1300, 1330, 1180],
     recebido:     [1040, 1105, 1180, 1210, 1245, 1270, 1090],
@@ -93,9 +113,10 @@ window.DATA = (function () {
     /* --------- Alertas --------- */
     alertas: [
       { nivel:'crit', titulo:'Margem prevista do DQM24001 abaixo do mínimo',
-        limite:'Margem prevista 39% · mínimo 48%',
+        limite:'Margem prevista 38,0% · mínimo 48%',
         causa:'Consumo de horas da CIV 22% acima do orçado com progresso físico de 52%',
-        impacto:'Redução de R$ 378 mil no resultado previsto do contrato',
+        /* 10 pontos abaixo do mínimo sobre R$ 4.200 mil contratados = R$ 420 mil. */
+        impacto:'Redução de R$ 420 mil no resultado previsto do contrato',
         responsavel:'Coordenador do contrato · M. Andrade', prazo:'27/07/2026',
         acao:'Revisar horas restantes e formalizar alterações de escopo', status:'Pendente' },
       { nivel:'high', titulo:'CIV superalocada em julho e agosto',
@@ -122,16 +143,19 @@ window.DATA = (function () {
     acoes: [
       { prio:'Crítica', alerta:'CIV superalocada',        impacto:'Atraso provável',   resp:'Gestor de recursos', prazo:'25/07', acao:'Replanejar alocação',   status:'Em andamento' },
       { prio:'Alta',    alerta:'12 documentos atrasados',   impacto:'Faturamento retido',resp:'Coordenador',        prazo:'26/07', acao:'Cobrar responsáveis',   status:'Pendente' },
-      { prio:'Alta',    alerta:'Margem prevista de 39%',    impacto:'Resultado abaixo da meta', resp:'Gerente',     prazo:'27/07', acao:'Revisar custos e escopo',status:'Pendente' },
+      { prio:'Alta',    alerta:'Margem prevista de 38%',    impacto:'Resultado abaixo da meta', resp:'Gerente',     prazo:'27/07', acao:'Revisar custos e escopo',status:'Pendente' },
       { prio:'Média',   alerta:'Retrabalho de 9,1% na CIV',impacto:'Consumo extra de horas', resp:'Líder CIV', prazo:'30/07', acao:'Analisar causas das revisões', status:'Pendente' }
     ],
 
     /* --------- Estudo de caso: contrato DQM24001 --------- */
     caso: {
       contrato:'DQM24001', cliente:'Delta', valor:4200,
+      /* O contrato acompanha o plano até março e se descola a partir de abril:
+         a distância salta de 2 para 7 pontos e não para mais de crescer.
+         É esse ponto de inflexão que o MOD-10 pede para o aluno encontrar. */
       progressoPlan:[10,22,34,45,56,66,74],
-      progressoReal:[ 8,17,25,32,39,46,52],
-      horasAcum:    [12,24,36,47,57,65,72],
+      progressoReal:[ 9,21,32,38,44,48,52],
+      horasAcum:    [11,23,35,47,57,65,72],
       docsRevisao:[ {doc:'DQM-CIV-DE-0142', revisoes:4, motivo:'Alteração de premissa do cliente'},
                     {doc:'DQM-CIV-DE-0157', revisoes:3, motivo:'Interferência com tubulação'},
                     {doc:'DQM-CIV-ME-0031', revisoes:3, motivo:'Retrabalho interno'},
@@ -139,14 +163,15 @@ window.DATA = (function () {
       pendClientes:4, retrabalhoPct:9.1
     },
 
-    /* --------- Waterfall do resultado (R$ mil, mês de julho) --------- */
+    /* --------- Waterfall do resultado (R$ mil, mês de julho) ---------
+       Derivado das mesmas séries acima: a soma sempre fecha, por construção. */
     cascata: [
-      { rot:'Receita',   v: 1290, tipo:'inicio' },
-      { rot:'MOD',       v: -651, tipo:'neg' },
-      { rot:'CPE',       v: -158, tipo:'neg' },
-      { rot:'Terceiros', v:  -92, tipo:'neg' },
-      { rot:'Despesas',  v:  -87, tipo:'neg' },
-      { rot:'Margem',    v:  302, tipo:'fim' }
+      { rot:'Receita',      v:  receita[ultimo],                     tipo:'inicio' },
+      { rot:'MOD',          v: -custoMOD[ultimo],                    tipo:'neg' },
+      { rot:'CPE',          v: -custoCPE[ultimo],                    tipo:'neg' },
+      { rot:'Margem bruta', v:  margemValor(ultimo),                 tipo:'sub' },
+      { rot:'Despesas',     v: -despesas[ultimo],                    tipo:'neg' },
+      { rot:'Resultado',    v:  margemValor(ultimo) - despesas[ultimo], tipo:'fim' }
     ]
   };
 })();

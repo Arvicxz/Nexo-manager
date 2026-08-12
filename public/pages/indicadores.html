@@ -49,9 +49,11 @@
 
     <article class="card">
       <div class="card-head"><div><h3>Margem bruta</h3><p>Rentabilidade depois dos custos diretos</p></div><span class="badge badge-red">43,0% · meta 48%</span></div>
-      <div class="formula"><span class="formula-label">Fórmula</span>(Receita − Custos diretos) ÷ Receita × 100</div>
+      <div class="formula"><span class="formula-label">Fórmula</span>(Receita − Custos diretos) ÷ Receita × 100
+Custos diretos = MOD + CPE  ·  despesas administrativas ficam de fora</div>
       <div data-slot="ind-margem"></div>
       <p class="small">Seis meses de queda contínua. O valor atual ainda parece aceitável; a tendência é o que exige decisão.</p>
+      <p class="small"><strong>Antes de comparar, confira o que entra na conta.</strong> Margem bruta considera só o custo direto. Se um relatório subtrair também as despesas administrativas, ele chega a outro número — e nenhum dos dois está errado, desde que a fórmula esteja declarada. Veja as duas contas separadas no cartão “Formação do resultado”.</p>
       <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
         <div class="grid g3" style="gap:12px">
           <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Acima da meta e estável.</p></div>
@@ -67,7 +69,11 @@
       <div class="card-head"><div><h3>Formação do resultado</h3><p>Como a receita vira margem — julho/2026, R$ mil</p></div></div>
       <div data-slot="ind-cascata"></div>
       <p class="small">O gráfico de cascata evita a pergunta “por que a margem caiu?”: ele já mostra qual parcela cresceu.</p>
-      <p class="erro-comum"><b>Erro comum:</b> Explicar queda de margem apenas com o percentual final, sem decompor os custos.</p>
+      <p class="small"><strong>Repare nas duas barras azuis do fim.</strong> A cascata tem dois pontos de chegada, e confundi-los é a origem de metade das discussões sobre margem em reunião:</p>
+      <div class="formula"><span class="formula-label">Duas contas, dois números</span>Receita 1.290 − MOD 651 − CPE 84  =  Margem bruta 555   (43,0%)
+Margem bruta 555 − Despesas 87    =  Resultado    468   (36,3%)</div>
+      <p class="small">A margem bruta responde “este trabalho se paga?”. O resultado responde “sobra dinheiro depois de manter a empresa de pé?”. O primeiro cobra o coordenador do contrato; o segundo, a diretoria.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Explicar queda de margem apenas com o percentual final, sem decompor os custos — ou comparar a margem bruta de um relatório com o resultado de outro.</p>
     </article>
 
     <article class="card">
@@ -75,6 +81,7 @@
       <div class="formula"><span class="formula-label">Fórmula</span>Custo da mão de obra direta ÷ Receita</div>
       <div data-slot="ind-mod"></div>
       <p class="small">Subiu de 44,1% para 50,5% em sete meses — o principal componente da queda da margem.</p>
+      <p class="small"><strong>Confira a conta:</strong> a MOD subiu 6,4 pontos e a margem caiu 4,5. A diferença não sumiu: o CPE recuou 2 pontos no mesmo período e amorteceu parte do impacto. Todo desvio de margem fecha assim — se as parcelas não somam, falta uma.</p>
       <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
         <div class="grid g3" style="gap:12px">
           <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Estável e compatível com o mix de senioridade.</p></div>
@@ -91,6 +98,7 @@
       <div class="formula"><span class="formula-label">Fórmula</span>CPE ÷ Receita</div>
       <div data-slot="ind-cpe"></div>
       <p class="small">Mede a dependência de terceiros, fornecedores e despesas externas. Cada empresa precisa fixar o que entra nesta conta.</p>
+      <p class="small">Aqui ele cai de 8,5% para 6,5%: a empresa internalizou serviços que antes subcontratava. Boa notícia isolada, má notícia no conjunto — foi essa internalização que empurrou a MOD para cima.</p>
       <p class="erro-comum"><b>Erro comum:</b> Mudar a composição do CPE no meio do ano e comparar com o histórico antigo.</p>
     </article>
 
@@ -128,7 +136,7 @@
     <article class="card">
       <div class="card-head"><div><h3>Progresso físico x consumo de horas</h3><p>DQM24001 — o par de indicadores mais revelador da gestão de projetos</p></div></div>
       <div data-slot="ind-progresso"></div>
-      <p class="small">Progresso físico de 52% com 72% das horas consumidas. As curvas se abriram em abril — o problema tem três meses, não um.</p>
+      <p class="small">Progresso físico de 52% com 72% das horas consumidas. Até março a distância entre horas e progresso era de 2 a 3 pontos; em abril salta para 9 e nunca mais fecha. O problema tem três meses, não um — e tem data de início.</p>
       <details class="acc"><summary>Como interpretar este indicador</summary><div class="acc-body">
         <div class="grid g3" style="gap:12px">
           <div><p class="small mb0"><span class="badge badge-green">Saudável</span></p><p class="small">Curvas de progresso e horas caminham juntas.</p></div>

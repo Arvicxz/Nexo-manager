@@ -152,12 +152,17 @@ window.CH = (function () {
     return svg(w,h,g,cfg.label);
   };
 
-  /* --------------------------------------------------- cascata */
+  /* --------------------------------------------------- cascata
+     Tipos de parcela:
+       inicio · ponto de partida, barra desde o zero
+       neg    · parcela que subtrai, empilhada sobre o acumulado
+       sub    · subtotal intermediário, barra desde o zero (ex.: margem bruta)
+       fim    · resultado final, barra desde o zero                          */
   API.waterfall = function (cfg){
     var w=cfg.w||720, h=cfg.h||270, p=pad(w,h,{l:60,b:40}), it=cfg.items;
     var acc=0, tops=[], max=0;
     it.forEach(function(x){
-      if (x.tipo==='inicio'||x.tipo==='fim'){ tops.push({a:0,b:x.v}); acc=x.v; }
+      if (x.tipo==='inicio'||x.tipo==='fim'||x.tipo==='sub'){ tops.push({a:0,b:x.v}); acc=x.v; }
       else { tops.push({a:acc, b:acc+x.v}); acc+=x.v; }
       max=Math.max(max, Math.abs(acc), Math.abs(x.v));
     });

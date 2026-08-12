@@ -103,7 +103,8 @@
       </div>
       <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Margem bruta da carteira mês a mês, com linha de meta.</p>
       <p class="tiny muted mb0"><strong>Interações:</strong> Tooltip, seleção de período, linha de meta, linha de tendência, zoom temporal.</p>
-      <p class="erro-comum"><b>Erro comum:</b> Cortar o eixo Y para exagerar variações pequenas.</p>
+      <p class="small" style="margin-top:10px"><strong>O eixo deste gráfico começa em 40%, não em zero — e está certo.</strong> A linha marca valor por <em>posição</em>: forçar o zero espremeria uma queda de 4,5 pontos até virar uma reta, escondendo justamente o que o gráfico existe para mostrar. A regra do zero obrigatório vale para barras e área, que marcam valor por <em>comprimento</em> — aí, cortar o eixo dobra visualmente uma diferença que não dobrou. A regra real não é sobre o zero: é sobre declarar a escala e não escolher o corte para dramatizar.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Cortar o eixo sem rótulo que mostre onde ele começa, ou ajustar o corte até a variação “parecer” grande.</p>
     </article>
 
     <article class="card">
@@ -115,7 +116,7 @@
       </div>
       <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Horas realizadas por disciplina no contrato DQM24001.</p>
       <p class="tiny muted mb0"><strong>Interações:</strong> Ordenação, cross-filter ao clicar, drill-down para atividade.</p>
-      <p class="erro-comum"><b>Erro comum:</b> Começar o eixo em valor diferente de zero.</p>
+      <p class="erro-comum"><b>Erro comum:</b> Começar o eixo em valor diferente de zero. Aqui a regra é firme: a barra comunica pelo comprimento, e comprimento cortado mente sobre a proporção. Se a variação é pequena demais para aparecer com o eixo no zero, o gráfico certo é outro — uma linha, ou uma barra do próprio desvio.</p>
     </article>
 
     <article class="card">
@@ -169,7 +170,7 @@
         <p class="small mb0"><strong>Quando usar:</strong> Formação de margem, variação de resultado entre dois períodos.</p>
         <p class="small mb0"><strong>Quando evitar:</strong> Séries temporais longas.</p>
       </div>
-      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Receita menos MOD, CPE, terceiros e despesas até chegar à margem.</p>
+      <p class="small" style="margin-top:10px"><strong>Exemplo no Nexo Gestão:</strong> Receita menos MOD e CPE até a margem bruta, e menos despesas até o resultado — com o subtotal marcado no meio do caminho.</p>
       <p class="erro-comum"><b>Erro comum:</b> Omitir uma parcela e deixar a soma não fechar.</p>
     </article>
 
@@ -247,7 +248,7 @@
         <span><i style="background:var(--c-blue)"></i>MOD</span>
         <span><i style="background:var(--c-purple)"></i>CPE</span>
         <span><i style="background:var(--c-gray)"></i>Despesas</span>
-        <span><i style="background:var(--c-green)"></i>Margem</span>
+        <span><i style="background:var(--c-green)"></i>Resultado</span>
       </div>
       <div class="grid g2" style="gap:8px;margin-top:14px">
         <p class="small mb0"><strong>Quando usar:</strong> Poucas categorias, soma igual a 100%, diferenças visíveis.</p>
@@ -277,6 +278,7 @@
     <ul>
       <li>A pergunta vem antes do gráfico.</li>
       <li>Barras comparam melhor que ângulos: pizza só com poucas categorias.</li>
+      <li>Eixo no zero é obrigatório em barras e área, opcional em linha — o que nunca é opcional é declarar a escala.</li>
       <li>Bullet chart substitui velocímetro na maioria das dashboards.</li>
       <li>Cascata explica a formação do resultado; mapa de calor mostra onde ele dói.</li>
       <li>Radar serve para percepção qualitativa, não para decisão financeira.</li>

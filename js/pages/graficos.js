@@ -119,10 +119,16 @@ APP.page('graficos', {
                         valueLabel: '43%', label: 'Margem · meta 48%' });
     },
 
+    /* As quatro fatias precisam somar exatamente a receita do mês:
+       rosca é composição de um total, e um total que não fecha não é composição. */
     'g-donut': function () {
-      return CH.donut({ centro: 'R$ 1.290 mil',
-                        slices: [{ rot: 'MOD', v: 651, color: 'blue' }, { rot: 'CPE', v: 158, color: 'purple' },
-                                 { rot: 'Despesas', v: 87, color: 'gray' }, { rot: 'Margem', v: 302, color: 'green' }],
+      var i = DATA.receita.length - 1;
+      var resultado = DATA.receita[i] - DATA.custoMOD[i] - DATA.custoCPE[i] - DATA.despesas[i];
+      return CH.donut({ centro: 'R$ ' + CH.fmt.n0(DATA.receita[i]) + ' mil',
+                        slices: [{ rot: 'MOD', v: DATA.custoMOD[i], color: 'blue' },
+                                 { rot: 'CPE', v: DATA.custoCPE[i], color: 'purple' },
+                                 { rot: 'Despesas', v: DATA.despesas[i], color: 'gray' },
+                                 { rot: 'Resultado', v: resultado, color: 'green' }],
                         label: 'Exemplo de rosca' });
     },
 
