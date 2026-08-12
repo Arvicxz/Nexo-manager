@@ -11,7 +11,7 @@ Todos os dados exibidos pelo sistema sao ficticios.
 
 O Nexo Gestao e uma SPA (Single Page Application) criada com HTML, CSS e JavaScript
 puros, usando Vite apenas como servidor e ferramenta de build. A aplicacao organiza
-uma trilha de aprendizagem em 12 modulos, cada um com conteudo, exemplos visuais e
+uma trilha de aprendizagem em 14 modulos, cada um com conteudo, exemplos visuais e
 interacoes especificas.
 
 Principais recursos:
@@ -21,8 +21,32 @@ Principais recursos:
 - busca global por conceitos, indicadores, graficos e intencoes de uso;
 - dashboards e componentes didaticos gerados a partir de dados ficticios;
 - simulacoes interativas, como planejamento, forecast, filtros e estudos de caso;
+- bloco de fontes bibliograficas ao final de cada modulo, dizendo o que cada obra sustenta;
+- bloco de ferramentas de mercado ao final de cada modulo, organizado por camada;
+- marcacao explicita de convencoes da casa: todo limiar arbitrario e declarado como tal;
+- verificacao automatica de coerencia entre dados e texto (`npm run verificar`);
 - registro de progresso no `localStorage` do navegador;
 - carregamento modular de templates HTML por HTTP.
+
+## Confiabilidade do Conteudo
+
+O material foi escrito com apoio de inteligencia artificial, o que traz um risco
+especifico: texto fluente e ocasionalmente errado. Tres mecanismos reduzem esse risco.
+
+**Numeros derivados, nunca digitados duas vezes.** Margem, cascata, rosca e
+percentuais saem de uma unica conta em `js/data/data.js`. Mudar um custo muda todos
+os numeros e todos os graficos juntos. E o mesmo principio que o MOD-02 ensina — "a
+formula e da empresa, nao da tela" — aplicado ao proprio material didatico.
+
+**Tres tipos de afirmacao, tres tratamentos.** Consenso da literatura leva referencia
+com autor e ano. Requisito de norma leva o numero do criterio. Convencao da casa leva
+a marca `.convencao`, que declara o valor como escolha da empresa ficticia e nao como
+regra de mercado. O MOD-14 explica a distincao.
+
+**Trava de regressao.** `npm run verificar` recalcula os valores derivados e falha se
+a prosa dos templates discordar dos dados. Tambem confere as regras editoriais do
+catalogo de ferramentas e a integridade das chaves de fontes. Rode antes de publicar
+qualquer mudanca em `js/data/`.
 
 ## Funcionamento
 
@@ -123,6 +147,7 @@ http://localhost:8000
 | `npm run dev` | Inicia o servidor de desenvolvimento com Vite. |
 | `npm run build` | Gera a versao de producao na pasta `dist/`. |
 | `npm run preview` | Serve localmente a versao de producao gerada. |
+| `npm run verificar` | Confere a coerencia entre dados, graficos e texto dos modulos. |
 | `./servir.sh` | Serve a pasta `dist/` com Python 3, quando disponivel. |
 
 ## Estrutura do Projeto
@@ -135,14 +160,24 @@ http://localhost:8000
 +-- public/
 |   +-- pages/              # templates HTML dos modulos
 +-- css/                    # tokens, base, layout, componentes e responsividade
++-- tests/
+|   +-- coerencia.js        # verificacao de coerencia entre dados e texto
 +-- js/
     +-- main.js             # ponto de entrada da aplicacao
     +-- core/               # router, templates, slots, progresso e registro
-    +-- data/               # dados ficticios usados nos exemplos
+    +-- data/               # dados ficticios, catalogo de fontes e de ferramentas
     +-- pages/              # configuracao e comportamento dos modulos
     +-- shell/              # menu, busca, progresso e inicializacao
     +-- ui/                 # componentes visuais e graficos
 ```
+
+Os tres arquivos de `js/data/` tem papeis distintos:
+
+| Arquivo | Conteudo |
+|---|---|
+| `data.js` | Dados ficticios da empresa. Valores derivados saem de uma unica conta. |
+| `fontes.js` | Bibliografia. Cada obra registrada uma vez, com o campo `sustenta`. |
+| `ferramentas.js` | Ferramentas de mercado, agrupadas pelas camadas do fluxo do MOD-02. |
 
 ## Modulos
 
@@ -158,15 +193,19 @@ http://localhost:8000
 | MOD-08 | Planejamento e forecast | Simulacao de encerramento com recalculo em tempo real. |
 | MOD-09 | Perfis de gestao | Visao por publico: diretoria, operacao, cliente e outras personas. |
 | MOD-10 | Estudo de caso | Investigacao guiada de um contrato ficticio. |
-| MOD-11 | Boas praticas | Comparativos, principios visuais e acessibilidade. |
+| MOD-11 | Boas praticas | Comparativos, principios visuais e acessibilidade por criterio WCAG. |
 | MOD-12 | Glossario | Termos de dashboards e gestao com busca. |
+| MOD-13 | Ferramentas | Catalogo de ferramentas de mercado por camada, com filtros. |
+| MOD-14 | Fontes e verificacao | Bibliografia, metodo de verificacao e limites declarados. |
 
 ## Como Adicionar um Modulo
 
 1. Crie um novo template em `public/pages/meu-modulo.html`.
 2. Crie o arquivo de configuracao em `js/pages/meu-modulo.js`.
 3. Registre o modulo com `APP.page(...)`, informando codigo, titulo, nivel, tempo, descricao, tags, slots e `mount`.
-4. Importe o novo arquivo em `js/main.js`.
+4. Declare em `fontes` as obras que sustentam o que o modulo afirma, e em `ferramentas` as camadas relevantes. Os dois blocos aparecem sozinhos no rodape.
+5. Importe o novo arquivo em `js/main.js`.
+6. Rode `npm run verificar` — ele confere que as chaves declaradas existem nos catalogos.
 
 Exemplo basico:
 
@@ -179,6 +218,8 @@ APP.page('meu-modulo', {
   rev: 'REV-A',
   desc: 'Descricao curta do modulo.',
   tags: ['indicador', 'exemplo'],
+  fontes: ['cleveland1984', 'few2013'],
+  ferramentas: ['visualizacao'],
   slots: {
     kpis: function () {
       return UI.kpi({ label: 'Exemplo', value: '42' });
@@ -196,3 +237,7 @@ APP.page('meu-modulo', {
 - Os dados estao concentrados em `js/data/data.js`.
 - O progresso e salvo apenas no navegador usado pelo usuario.
 - A aplicacao foi pensada para fins educacionais e demonstrativos.
+- Os numeros da empresa ficticia sao parametros de exemplo, nao referencias de mercado.
+  Onde isso importa, o texto traz a marca "Convencao da casa".
+- Duas obras do catalogo de fontes estao marcadas como conferencia pendente e aparecem
+  sinalizadas na tela. Confira-as contra a edicao ou o DOI antes de citar em documento formal.
